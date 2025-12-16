@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Generative Automation Testing – Supercharging E2E with AI & Playwright MCP</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Google Fonts for handwriting style -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iBlog
+  * Template URL: https://bootstrapmade.com/iBlog-bootstrap-Blog-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="Blog-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-row">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <h1 class="sitename">Phuc Tan Dinh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="index.html#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="blog.html"><i class="bi bi-images navicon"></i> Blog</a></li>
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="#">Dropdown 1</a></li>
+            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Deep Dropdown 1</a></li>
+                <li><a href="#">Deep Dropdown 2</a></li>
+                <li><a href="#">Deep Dropdown 3</a></li>
+                <li><a href="#">Deep Dropdown 4</a></li>
+                <li><a href="#">Deep Dropdown 5</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Dropdown 2</a></li>
+            <li><a href="#">Dropdown 3</a></li>
+            <li><a href="#">Dropdown 4</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Blog Details Section -->
+    <section id="Blog-details" class="Blog-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="blog-detail-layout">
+          
+          <!-- Table of Contents Sidebar -->
+          <aside class="blog-toc-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="blog-toc-list">
+              <li class="active"><a href="#section-1">1. What is MCP Server</a></li>
+              <li><a href="#section-2">2. Playwright MCP Server</a>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-2-1">2.1 Generate automation scripts</a></li>
+                  <li><a href="#section-2-2">2.2 Fix broken test</a></li>
+                  <li><a href="#section-2-3">2.3 Test execution</a></li>
+                </ul>
+              </li>
+              <li><a href="#section-3">3. Quick steps to set up Playwright MCP Server on VS Code</a>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-3-1">Pre-requisite</a></li>
+                  <li><a href="#section-3-2">3.1 Install Playwright MCP Server</a></li>
+                  <li><a href="#section-3-3">3.2 Configuration</a></li>
+                  <li><a href="#section-3-4">3.3 Start playing with Playwright MCP Server</a></li>
+                </ul>
+              </li>
+              <li><a href="#section-4">4. Conclusion</a></li>
+            </ul>
+
+            <div class="blog-project-info" style="margin-top: 30px;">
+              <h3>Project information</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Category:</strong> Quality Solutions</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Author:</strong> Phuc Tan Dinh</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Published:</strong> September 16, 2025</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Reading time:</strong> 8 min</li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Main Content Area -->
+          <div class="blog-content-area">
+            
+            <!-- Header Image -->
+            <div class="blog-header-image">
+              <img src="assets/img/Blog/app-1.jpg" alt="Playwright MCP + GitHub Copilot">
+            </div>
+
+            <!-- Introduction -->
+            <div class="blog-content-section">
+              <p>
+                Generative Automation Testing, particularly when supercharged with AI and the Playwright Model Context Protocol (MCP), 
+                represents a modern approach to End-to-End (E2E) software quality assurance. 
+                This integration leverages Large Language Models (LLMs) and Generative AI to create smarter, more efficient, and self-maintaining test suites.
+              </p>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="blog-content-section" id="section-1">
+              <h2>1. What is MCP Server</h2>
+              <p>
+                At the beginning of 2025, MCP Server is one of the most popular keywords when we talk about AI. For now, there is a lot of
+                MCP Server kinds like Flutter MCP, PostgreSQL MCP, Selenium MCP, Git MCP. So, what is an MCP server?
+              </p>
+              <p>
+                An MCP (Model Context Protocol) server is a program that provides tools, resources, and capabilities to AI clients, enabling
+                them to interact with external data and applications. It implements the server-side of the MCP protocol, which defines how
+                clients and servers communicate.
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="blog-content-section" id="section-2">
+              <h2>2. Playwright MCP Server</h2>
+              <p>
+                A Model Context Protocol (MCP) server that provides browser automation capabilities using Playwright. 
+                This server enables LLMs to interact with web pages through structured accessibility snapshots, bypassing the need for screenshots or visually-tuned models.
+              </p>
+
+              <h3 id="section-2-1">2.1 Generate automation scripts</h3>
+              <p>
+                The Playwright MCP Server can automatically generate test scripts based on your requirements. Simply describe what you want
+                to test, and it will create the necessary Playwright code with proper selectors and assertions.
+              </p>
+
+              <h3 id="section-2-2">2.2 Fix broken test</h3>
+              <p>
+                When tests fail due to UI changes or timing issues, the MCP Server can analyze the failures and suggest fixes. It can update
+                selectors, add proper waits, and handle dynamic content automatically.
+              </p>
+
+              <h3 id="section-2-3">2.3 Test execution</h3>
+              <p>
+                Execute your Playwright tests directly through the MCP Server with real-time feedback and detailed reporting. The server
+                handles browser initialization, test execution, and cleanup automatically.
+              </p>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="blog-content-section" id="section-3">
+              <h2>3. Quick steps to set up Playwright MCP Server on VS Code</h2>
+              
+              <h3 id="section-3-1">Pre-requisite</h3>
+              <ul>
+                <li>Node.js (version 16 or higher)</li>
+                <li>Visual Studio Code with GitHub Copilot extension</li>
+                <li>Basic knowledge of Playwright</li>
+              </ul>
+
+              <h3 id="section-3-2">3.1 Install Playwright MCP Server</h3>
+              <h6>
+                Option 1:
+              </h6>
+              <p>
+                You can go to <a href="https://github.com/microsoft/playwright-mcp">https://github.com/microsoft/playwright-mcp</a> and click VS Code to install Playwright MCP Server extension:
+              </p>
+              <div class="blog-header-image">
+                <img src="assets/img/Blog/download-MCP-server.jpg" alt="download-MCP-server">
+              </div>
+              <h6>
+                Option 2:
+              </h6>
+              <p>
+                👣 Step 1, you need to install the Playwright MCP Server package. Open your terminal and run the following command:
+              </p>
+              <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>npm install -g @playwright/mcp-server</code></pre>
+              <p>
+                👣 Step 2, after installation, configure the MCP Server in your VS Code settings. Add the following configuration to your
+                <code>mcp-config.json</code> file:
+              </p>
+              <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;">
+                <code>{
+                  "mcpServers": {
+                    "playwright": {
+                      "command": "npx",
+                      "args": [
+                        "@playwright/mcp@latest"
+                      ]
+                    }
+                  }
+                }</code>
+              </pre>
+              <h3 id="section-3-3">3.2 Configuration</h3>
+              <p>
+                After installation, configure the MCP Server in your VS Code settings. Add the following configuration to your
+                <code>settings.json</code> file:
+              </p>
+              <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;">
+                
+              </pre>
+              <h3 id="section-3-4">3.3 Start playing with Playwright MCP Server</h3>
+              <p>
+                Now you're ready to start using Playwright MCP Server with GitHub Copilot! Open a new file and start describing your
+                test scenarios. The AI will generate accurate Playwright code with proper selectors and best practices.
+              </p>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="blog-content-section" id="section-4">
+              <h2>4. Conclusion</h2>
+              <p>
+                The combination of GitHub Copilot and Playwright MCP Server represents a significant advancement in test automation.
+                It reduces the time needed to write and maintain tests while improving code quality and reliability. By automating
+                the tedious parts of test creation and maintenance, QA engineers can focus on more strategic testing activities.
+              </p>
+              <p>
+                Start experimenting with Playwright MCP Server today and experience the future of intelligent test automation!
+              </p>
+            </div>
+
+            <!-- Reference Servers -->
+            <div class="reference-servers">
+              <h3>Reference Servers</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Blog Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <h3 class="sitename">Phuc Tan Dinh</h3>
+      <p>Et aut eum quas repudiandae sint. Voluptates nesciunt nihil explicabo et. Optio quo molestias similique in omnis.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-facebook icon-blog-footer-1"></i></a>
+        <a href=""><i class="bi bi-instagram icon-blog-footer-1"></i></a>
+        <a href=""><i class="bi bi-skype icon-blog-footer-1"></i></a>
+        <a href=""><i class="bi bi-linkedin icon-blog-footer-1"></i></a>
+      </div>
+      <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">PhucBoo</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://www.facebook.com/phuc.boo.99/">PhucBoo</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

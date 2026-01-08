@@ -66,6 +66,17 @@ body {
   font-family: var(--default-font);
 }
 
+/* Fix scroll offset for fixed header */
+[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Adjust for sections specifically */
+.blog-content-section[id],
+h2[id], h3[id], h4[id] {
+  scroll-margin-top: 120px;
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -1683,6 +1694,18 @@ section,
   width: 100%;
   height: auto;
   display: block;
+}
+.blog-header-image-2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.blog-header-image-2 {
+  width: 80%;
+  margin: 0 auto 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .blog-project-info {

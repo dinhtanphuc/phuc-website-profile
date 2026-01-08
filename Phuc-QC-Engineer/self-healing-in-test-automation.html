@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Self-Healing in Automation Testing</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Google Fonts for handwriting style -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iBlog
+  * Template URL: https://bootstrapmade.com/iBlog-bootstrap-Blog-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="blog-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-row">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <h1 class="sitename">Phuc Tan Dinh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="index.html#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="blog.html"><i class="bi bi-images navicon"></i> Blog</a></li>
+        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="#">Dropdown 1</a></li>
+            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Deep Dropdown 1</a></li>
+                <li><a href="#">Deep Dropdown 2</a></li>
+                <li><a href="#">Deep Dropdown 3</a></li>
+                <li><a href="#">Deep Dropdown 4</a></li>
+                <li><a href="#">Deep Dropdown 5</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Dropdown 2</a></li>
+            <li><a href="#">Dropdown 3</a></li>
+            <li><a href="#">Dropdown 4</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Blog Details Section -->
+    <section id="blog-details" class="blog-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="blog-detail-layout">
+          
+          <!-- Table of Contents Sidebar -->
+          <aside class="blog-toc-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="blog-toc-list">
+              <li class="active"><a href="#section-1">1. Self-Healing Explained</a>
+              </li>
+              <ul class="blog-toc-sublist">
+                  <li><a href="#section-1-1">1.1 The Core Mechanism</a></li>
+                  <li><a href="#section-1-2">1.2 Reducing Flaky Tests</a></li>
+                </ul>
+              <li><a href="#section-2">2. Concrete Example</a>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-2-1">2.1 Scenario: Developer Change</a></li>
+                  <li><a href="#section-2-2">2.2 Traditional vs Self-Healing</a></li>
+                  <li><a href="#section-2-3">2.3 Generative/Self-Healing Testing Outcome</a></li>
+                </ul>
+              </li>
+              <li><a href="#section-3">3. Benefits of Self-Healing</a></li>
+              <li><a href="#section-4">4. Conclusion</a></li>
+            </ul>
+
+            <div class="blog-project-info" style="margin-top: 30px;">
+              <h3>Project information</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Category:</strong> Quality Solutions</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Author:</strong> Phuc Tan Dinh</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Published:</strong> December 17, 2025</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Reading time:</strong> 6 min</li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Main Content Area -->
+          <div class="blog-content-area">
+            
+            <!-- Header Image -->
+            <div class="blog-header-image-2">
+              <img src="assets/img/Blog/self-healing-logo-3.jpg" alt="Self-Healing in Test Automation">
+            </div>
+
+            <!-- Introduction -->
+            <div class="blog-content-section">
+              <p>
+                In traditional E2E testing, test scripts rely on locators (like XPath, CSS selectors, or IDs) to find and interact with elements on a web page. 
+                If a developer changes the HTML structure, and the locator for an element is updated, the test script fails—even if the application's functionality is still correct. 
+                This results in a "flaky" test that requires a human tester to manually update the script.
+              </p>
+              <p>
+                <strong>Self-healing uses AI to solve this problem automatically.</strong>
+              </p>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="blog-content-section" id="section-1">
+              <h2>1. Self-Healing/Maintenance Explained</h2>
+              
+              <h3 id="section-1-1">1.1 The Core Mechanism</h3>
+              <p>
+                When a test runs and fails to find an element using the original locator, the AI agent intervenes and performs these steps:
+              </p>
+              
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #0078d4;">
+                <h4 style="color: #0078d4; margin-top: 0;">Step 1: Context Capture</h4>
+                <p>The AI captures the current state of the page (the full DOM structure and visual data).</p>
+                
+                <h4 style="color: #0078d4; margin-top: 20px;">Step 2: Feature Identification</h4>
+                <p>It uses machine learning models to identify the element based on its contextual features instead of just one fragile locator. These features include:</p>
+                <ul>
+                  <li><strong>Attributes:</strong> Text content, nearby labels, placeholder text, and the element's role.</li>
+                  <li><strong>DOM Proximity:</strong> Where the element is located relative to other stable elements (its parent, siblings, and children).</li>
+                  <li><strong>Visual Similarity:</strong> Comparing the visual appearance and position of the failed element with its last successful state.</li>
+                </ul>
+                
+                <h4 style="color: #0078d4; margin-top: 20px;">Step 3: New Locator Generation</h4>
+                <p>Based on the successful feature match, the AI generates a new, stable locator for the element.</p>
+                
+                <h4 style="color: #0078d4; margin-top: 20px;">Step 4: Script Update (Healing)</h4>
+                <p>The AI updates the test script's source code with the newly generated locator and re-runs the failed step, allowing the test to continue and pass.</p>
+              </div>
+
+              <h3 id="section-1-2">1.2 Reducing Flaky Tests and Maintenance Overhead</h3>
+              <p>
+                <strong>Flaky Tests:</strong> Tests that fail inconsistently due to minor UI changes are the bane of automation. 
+                Self-healing removes this flakiness by adapting to minor changes on the fly.
+              </p>
+              <p>
+                <strong>Maintenance Overhead:</strong> Updating test scripts is often cited as the biggest time sink in test automation. 
+                By automating the fixing process, the AI dramatically reduces the time testers spend maintaining existing scripts, 
+                allowing them to focus on writing new tests or performing exploratory testing.
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="blog-content-section" id="section-2">
+              <h2>2. Concrete Example</h2>
+              <p>
+                Imagine a test script checks the checkout process of an e-commerce site.
+              </p>
+              
+              <table style="width: 100%; border-collapse: collapse; margin: 20px 0; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <thead>
+                  <tr style="background: #0078d4; color: white;">
+                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Step</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Original Script Command</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Locate Button</strong></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><code>cy.get('#checkout-btn').click();</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3 id="section-2-1" style="margin-top: 30px;">2.1 Scenario (Developer Change):</h3>
+              <p>
+                A developer changes the ID of the checkout button from <code>#checkout-btn</code> to <code>#buy-now-button-final</code> as part of a refactor.
+              </p>
+
+              <h3 id="section-2-2" style="margin-top: 30px;">2.2 Traditional Testing Outcome:</h3>
+              <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 15px 0;">
+                <p style="margin: 0;">
+                  ❌ The test fails on the <strong>Locate Button</strong> step with an error like 
+                  <code>"Element with ID #checkout-btn not found."</code> <strong>Manual fix required.</strong>
+                </p>
+              </div>
+
+              <h3 id="section-2-3" style="margin-top: 30px;">2.3 Generative/Self-Healing Testing Outcome:</h3>
+              <div style="background: #d4edda; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745; margin: 15px 0;">
+                <ol style="line-height: 2;">
+                  <li>
+                    <strong>Failure:</strong> The test fails to find <code>#checkout-btn</code>.
+                  </li>
+                  <li>
+                    <strong>AI Intervention:</strong> The AI takes a snapshot of the DOM and determines:
+                    <ul style="margin-top: 10px;">
+                      <li><strong>Old Locator:</strong> <code>#checkout-btn</code></li>
+                      <li><strong>Contextual Features (Still Valid):</strong> The button still contains the text "Proceed to Checkout," 
+                        its parent is the <code>&lt;cart-summary&gt;</code> component, and its role is <code>button</code>.</li>
+                      <li><strong>New Locator Found:</strong> The AI identifies the new selector as <code>#buy-now-button-final</code> or, 
+                        more robustly, using text: <code>//button[text()='Proceed to Checkout']</code>.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Healing:</strong> The AI automatically overwrites the line in the test script:
+                    <pre style="background: #f8f9fa; padding: 10px; border-radius: 4px; margin-top: 10px;"><code>cy.get('#checkout-btn').click(); → cy.get('#buy-now-button-final').click();</code></pre>
+                  </li>
+                  <li>
+                    <strong>Continuation:</strong> The test step is re-run with the new locator, and the test continues to run successfully. ✅
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="blog-content-section" id="section-3">
+              <h2>3. Benefits of Self-Healing</h2>
+              <ul style="line-height: 2;">
+                <li>✅ <strong>Reduced Maintenance Time:</strong> Automated fixing eliminates manual script updates</li>
+                <li>✅ <strong>Higher Test Stability:</strong> Tests adapt to minor UI changes automatically</li>
+                <li>✅ <strong>Improved Productivity:</strong> QA teams focus on testing, not maintenance</li>
+                <li>✅ <strong>Faster Feedback:</strong> Tests continue running instead of failing on trivial changes</li>
+                <li>✅ <strong>Better ROI:</strong> Reduced cost of test automation over time</li>
+              </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="blog-content-section" id="section-4">
+              <h2>4. Conclusion</h2>
+              <p>
+                This ability to dynamically adapt and repair locators is the core mechanism that supercharges E2E testing by ensuring 
+                scripts remain reliable despite continuous application development.
+              </p>
+              <p>
+                Self-healing is not just a feature—it's a paradigm shift in how we approach test automation. 
+                By leveraging AI and machine learning, we can build test suites that are more resilient, maintainable, and valuable to the development process.
+              </p>
+              <p>
+                Learn more about implementing self-healing in your automation framework with 
+                <a href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html">Playwright MCP and GitHub Copilot</a>.
+              </p>
+            </div>
+            <div class="reference-servers">
+              <h3>Phuc Tan Dinh</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      
+
+    </section><!-- /Blog Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <h3 class="sitename">Phuc Tan Dinh</h3>
+      <p>Et aut eum quas repudiandae sint. Voluptates nesciunt nihil explicabo et. Optio quo molestias similique in omnis.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-facebook icon-blog-footer-1"></i></a>
+        <a href=""><i class="bi bi-instagram icon-blog-footer-1"></i></a>
+        <a href=""><i class="bi bi-skype icon-blog-footer-1"></i></a>
+        <a href=""><i class="bi bi-linkedin icon-blog-footer-1"></i></a>
+      </div>
+      <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">PhucBoo</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://www.facebook.com/phuc.boo.99/">PhucBoo</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

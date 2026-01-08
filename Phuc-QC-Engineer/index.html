@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/blog-carousel.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iBlog
@@ -64,8 +65,8 @@
         <li><a href="#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="blog.html"><i class="bi bi-images navicon"></i> Blog</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li><a href="#testimonials"><i class="bi bi-hdd-stack navicon"></i> Testimonials</a></li>
+        <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="#">Dropdown 1</a></li>
             <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -81,7 +82,7 @@
             <li><a href="#">Dropdown 3</a></li>
             <li><a href="#">Dropdown 4</a></li>
           </ul>
-        </li>
+        </li> -->
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -125,7 +126,9 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+            <a href="assets/img/my-profile-img.jpg" class="glightbox">
+              <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+            </a>
           </div>
           <div class="col-lg-8 content">
             <h2>QC Engineer.</h2>
@@ -393,26 +396,26 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="resume-title">Professional Experience</h3>
             <div class="resume-item">
-              <h4>Senior graphic design specialist</h4>
-              <h5>2019 - Present</h5>
-              <p><em>Experion, New York, NY </em></p>
+              <h4>Middle QC Engineer at Infodadtion</h4>
+              <h5>2022 - Present</h5>
+              <p><em>10th Floor, VCN Tower, 02 To Huu St., South Nha Trang ward, Khanh Hoa Province, Vietnam </em></p>
               <ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+                <li>Test Strategy & Planning: Responsible for developing test plans, estimating timelines, and designing detailed test cases for complex features across multiple platforms.</li>
+                <li>API Testing: Extensive experience testing RESTful APIs using Postman, JMeter and Swagger, including automated collection runs and environment variable management. </li>
+                <li>Automation Testing: Develop and maintain automation test scripts (Cypress/Playwright) for key business processes (Regression Testing) to reduce manual testing time by 40%.</li>
+                <li>Mentorship: Provide guidance and peer reviews for Fresher QC members to maintain high-quality deliverables across the team.</li>
               </ul>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>Graphic design specialist</h4>
-              <h5>2017 - 2018</h5>
-              <p><em>Stepping Stone Advertising, New York, NY</em></p>
+              <h4>Graphic design</h4>
+              <h5>2021 - 2025</h5>
+              <p><em>VCN Tower, 02 To Huu St., South Nha Trang ward, Khanh Hoa Province, Vietnam</em></p>
               <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
+                <!-- <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
                 <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
                 <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+                <li>Created 4+ design presentations and proposals a month for clients and account managers</li> -->
               </ul>
             </div><!-- Edn Resume Item -->
 
@@ -424,14 +427,174 @@
 
     </section><!-- /Resume Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+    <!-- Blog Section -->
+    <section id="blog" class="blog section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
+        <h2>Latest Blog Posts</h2>
+        <p>Explore my thoughts on Quality Assurance, automation testing, and personal experiences in the tech industry</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "centeredSlides": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 20,
+                  "centeredSlides": true
+                },
+                "768": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 30,
+                  "centeredSlides": false
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 30,
+                  "centeredSlides": false
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <!-- Blog Slide 1 -->
+            <div class="swiper-slide">
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/img/Blog/app-1.jpg" class="img-fluid" alt="Generative Automation Testing">
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Automation Testing</span>
+                  <h4><a href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html">How to Integrate Playwright MCP for AI-Driven Test Automation</a></h4>
+                  <div class="blog-meta">
+                    <span class="blog-date"><i class="bi bi-calendar"></i> 12th December 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Blog Slide -->
+
+            <!-- Blog Slide 2 -->
+            <div class="swiper-slide">
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/img/Blog/self-healing-logo-3.jpg" class="img-fluid" alt="Self-Healing in Automation Testing">
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Quality Solutions</span>
+                  <h4><a href="self-healing-in-test-automation.html">Self-Healing in Automation Testing</a></h4>
+                  <div class="blog-meta">
+                    <span class="blog-date"><i class="bi bi-calendar"></i> 20th November 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Blog Slide -->
+
+            <!-- Blog Slide 3 -->
+            <div class="swiper-slide">
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/img/Blog/product-1.jpg" class="img-fluid" alt="VnExpress Marathon">
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Sport</span>
+                  <h4><a href="blog-details.html">VnExpress Marathon NhaTrang August 2025!</a></h4>
+                  <div class="blog-meta">
+                    <span class="blog-date"><i class="bi bi-calendar"></i> 28th August 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Blog Slide -->
+
+            <!-- Blog Slide 4 -->
+            <div class="swiper-slide">
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/img/Blog/branding-1.jpg" class="img-fluid" alt="Small Liquor Store">
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Business</span>
+                  <h4><a href="blog-details.html">Small Liquor Store Owner</a></h4>
+                  <div class="blog-meta">
+                    <span class="blog-date"><i class="bi bi-calendar"></i> 8th December 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Blog Slide -->
+
+            <!-- Blog Slide 5 -->
+            <div class="swiper-slide">
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/img/Blog/books-1.jpg" class="img-fluid" alt="Work Life Balance">
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Family Life</span>
+                  <h4><a href="blog-details.html">Balancing Work and Family: Tips for QA Professionals</a></h4>
+                  <div class="blog-meta">
+                    <span class="blog-date"><i class="bi bi-calendar"></i> 5th December 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Blog Slide -->
+
+            <!-- Blog Slide 6 -->
+            <div class="swiper-slide">
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/img/Blog/app-2.jpg" class="img-fluid" alt="Mobile App Testing">
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Work Experience</span>
+                  <h4><a href="blog-details.html">Mobile App Testing: Common Pitfalls and Solutions</a></h4>
+                  <div class="blog-meta">
+                    <span class="blog-date"><i class="bi bi-calendar"></i> 3rd December 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Blog Slide -->
+
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="blog.html" class="btn-view-all">View All Posts <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+      </div>
+
+    </section><!-- /Blog Section -->
+
+    <!-- Services Section 
+    <section id="services" class="services section">
+
+      <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
 
@@ -444,7 +607,6 @@
               <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
           </div>
-          <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
@@ -452,7 +614,7 @@
               <h4 class="title"><a href="service-details.html" class="stretched-link">Dolor Sitema</a></h4>
               <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
@@ -460,7 +622,7 @@
               <h4 class="title"><a href="service-details.html" class="stretched-link">Sed ut perspiciatis</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
@@ -468,7 +630,7 @@
               <h4 class="title"><a href="service-details.html" class="stretched-link">Magni Dolores</a></h4>
               <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
             <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
@@ -476,7 +638,7 @@
               <h4 class="title"><a href="service-details.html" class="stretched-link">Nemo Enim</a></h4>
               <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
             <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
@@ -484,13 +646,14 @@
               <h4 class="title"><a href="service-details.html" class="stretched-link">Eiusmod Tempor</a></h4>
               <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Services Section -->
+    </section>
+    /Services Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">
@@ -498,7 +661,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>anh Phúc Đỉnh vãi ò!!!</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -535,10 +698,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <span>Perject.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <a href="assets/img/testimonials/testimonials-1.jpg" class="glightbox" data-gallery="testimonials-gallery">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                </a>
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
               </div>
@@ -548,10 +713,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                  <span>Perject.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <a href="assets/img/testimonials/testimonials-2.jpg" class="glightbox" data-gallery="testimonials-gallery">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                </a>
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
               </div>
@@ -561,10 +728,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                  <span>Perject.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <a href="assets/img/testimonials/testimonials-3.jpg" class="glightbox" data-gallery="testimonials-gallery">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                </a>
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
               </div>
@@ -574,10 +743,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                  <span>Perject.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <a href="assets/img/testimonials/testimonials-4.jpg" class="glightbox" data-gallery="testimonials-gallery">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                </a>
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
               </div>
@@ -587,10 +758,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                  <span>Perject.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <a href="assets/img/testimonials/testimonials-5.jpg" class="glightbox" data-gallery="testimonials-gallery">
+                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                </a>
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
               </div>
@@ -610,7 +783,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Phuc Tan Dinh</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -624,7 +797,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>VCN tower NhaTrang, Khanh Hoa, Vietnam</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -632,7 +805,7 @@
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <p>+84 34 797 0454</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -644,7 +817,7 @@
                 </div>
               </div><!-- End Info Item -->
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://maps.google.com/maps?q=12.241596,109.1774061&hl=en&z=16&output=embed" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 

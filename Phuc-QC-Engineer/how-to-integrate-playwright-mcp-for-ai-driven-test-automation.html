@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Generative Automation Testing – Supercharging E2E with AI & Playwright MCP</title>
+  <title>How to Integrate Playwright MCP for AI-Driven Test Automation</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -40,7 +40,7 @@
 </head>
 
 <body class="blog-details-page">
-
+<div>
   <header id="header" class="header dark-background d-flex flex-row">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
@@ -55,10 +55,8 @@
     </a>
 
     <div class="social-links text-center">
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
       <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
       <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
       <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
     </div>
 
@@ -90,9 +88,9 @@
         <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
-
   </header>
-
+</div>
+  <div>
   <main class="main">
 
     <!-- Blog Details Section -->
@@ -107,19 +105,24 @@
             <h3>Table of Contents</h3>
             <ul class="blog-toc-list">
               <li class="active"><a href="#section-1">1. What is MCP Server</a></li>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-1-1">1.1 MCP Server</a></li>
+                  <li><a href="#section-1-2">1.2 Evolutionary diagram</a></li>
+                </ul>
               <li><a href="#section-2">2. Playwright MCP Server</a>
                 <ul class="blog-toc-sublist">
-                  <li><a href="#section-2-1">2.1 Generate automation scripts</a></li>
-                  <li><a href="#section-2-2">2.2 Fix broken test</a></li>
-                  <li><a href="#section-2-3">2.3 Test execution</a></li>
+                  <li><a href="#section-2-1">2.1 Direct Interaction</a></li>
+                  <li><a href="#section-2-2">2.2 Generate automation scripts</a></li>
+                  <li><a href="#section-2-3">2.3 Fix broken test</a></li>
+                  <li><a href="#section-2-4">2.4 Test execution</a></li>
                 </ul>
               </li>
               <li><a href="#section-3">3. Quick steps to set up Playwright MCP Server on VS Code</a>
                 <ul class="blog-toc-sublist">
-                  <li><a href="#section-3-1">Pre-requisite</a></li>
-                  <li><a href="#section-3-2">3.1 Install Playwright MCP Server</a></li>
-                  <li><a href="#section-3-3">3.2 Configuration</a></li>
-                  <li><a href="#section-3-4">3.3 Start playing with Playwright MCP Server</a></li>
+                  <li><a href="#section-3-1">3.1 Pre-requisite</a></li>
+                  <li><a href="#section-3-2">3.2 Install Playwright MCP Server</a></li>
+                  <li><a href="#section-3-3">3.3 Verify Installation</a></li>
+                  <li><a href="#section-3-4">3.4 Start playing with Playwright MCP Server</a></li>
                 </ul>
               </li>
               <li><a href="#section-4">4. Conclusion</a></li>
@@ -141,7 +144,9 @@
             
             <!-- Header Image -->
             <div class="blog-header-image">
-              <img src="assets/img/Blog/app-1.jpg" alt="Playwright MCP + GitHub Copilot">
+              <a href="assets/img/Blog/app-1.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/app-1.jpg" alt="Playwright MCP + GitHub Copilot">
+              </a>
             </div>
 
             <!-- Introduction -->
@@ -156,6 +161,7 @@
             <!-- Section 1 -->
             <div class="blog-content-section" id="section-1">
               <h2>1. What is MCP Server</h2>
+              <h3 id="section-1-1">1.1 MCP Server</h3>
               <p>
                 At the beginning of 2025, MCP Server is one of the most popular keywords when we talk about AI. For now, there is a lot of
                 MCP Server kinds like Flutter MCP, PostgreSQL MCP, Selenium MCP, Git MCP. So, what is an MCP server?
@@ -165,29 +171,70 @@
                 them to interact with external data and applications. It implements the server-side of the MCP protocol, which defines how
                 clients and servers communicate.
               </p>
+              <div class="blog-header-image-2">
+              <a href="assets/img/Blog/what-is-MCP-server.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/what-is-MCP-server.jpg" alt="what is MCP server?">
+              </a>
+            </div>
+            <h3 id="section-1-2">1.2 Evolutionary diagram</h3>
+              <div class="blog-header-image-2">
+              <a href="assets/img/Blog/Evolutionary-diagram-01.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/Evolutionary-diagram-01.jpg" alt="Evolutionary diagram">
+              </a>
             </div>
 
             <!-- Section 2 -->
             <div class="blog-content-section" id="section-2">
               <h2>2. Playwright MCP Server</h2>
+
               <p>
                 A Model Context Protocol (MCP) server that provides browser automation capabilities using Playwright. 
                 This server enables LLMs to interact with web pages through structured accessibility snapshots, bypassing the need for screenshots or visually-tuned models.
               </p>
-
-              <h3 id="section-2-1">2.1 Generate automation scripts</h3>
+              <div class="blog-header-image-2">
+              <a href="assets/img/Blog/playwright-mcp-server.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/playwright-mcp-server.jpg" alt="Playwright MCP Server">
+              </a>
+            </div>
+            <h3 id="section-2-1">2.1 Direct Interaction</h3>
+              <p>
+                The Playwright MCP Server can control your web browser in real time. Instead of just writing code for you, it executes browser actions directly.
+              </p>
+              <p>
+                Playwright provides high-level methods that interact with the page as a real user would, including built-in auto-waiting mechanisms to ensure elements are ready before acting. 
+              </p>
+              <h3 id="section-2-2">2.2 Generate automation scripts</h3>
               <p>
                 The Playwright MCP Server can automatically generate test scripts based on your requirements. Simply describe what you want
                 to test, and it will create the necessary Playwright code with proper selectors and assertions.
               </p>
-
-              <h3 id="section-2-2">2.2 Fix broken test</h3>
+              <p>
+                With Playwright MCP, it will launch the browser and execute the steps we share.
+              </p>
+              <div class="blog-header-image-2">
+              <a href="assets/img/Blog/prompt-auto-generate.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/prompt-auto-generate.jpg" alt="Playwright MCP Server">
+              </a>
+              </div>
+              <p>
+                The Playwright MCP Server can automatically generate test scripts based on your requirements. Simply describe what you want
+                to test, and it will create the necessary Playwright code with proper selectors and assertions.
+              </p>
+              <div class="blog-header-image-2">
+              <a href="assets/img/Blog/result-auto-generate-script.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/result-auto-generate-script.jpg" alt="Playwright MCP Server">
+              </a>
+              </div>
+              <h3 id="section-2-3">2.3 Fix broken test</h3>
               <p>
                 When tests fail due to UI changes or timing issues, the MCP Server can analyze the failures and suggest fixes. It can update
                 selectors, add proper waits, and handle dynamic content automatically.
               </p>
-
-              <h3 id="section-2-3">2.3 Test execution</h3>
+              <p>
+                It is the core feature of <a href="self-healing-in-test-automation.html" target="_blank" rel="noopener noreferrer">Self-Healing in Automation Testing</a> in the context of Generative Automation Testing 
+                utilizing Playwright and the Model Context Protocol (MCP).
+              </p>
+              <h3 id="section-2-4">2.4 Test execution</h3>
               <p>
                 Execute your Playwright tests directly through the MCP Server with real-time feedback and detailed reporting. The server
                 handles browser initialization, test execution, and cleanup automatically.
@@ -198,58 +245,107 @@
             <div class="blog-content-section" id="section-3">
               <h2>3. Quick steps to set up Playwright MCP Server on VS Code</h2>
               
-              <h3 id="section-3-1">Pre-requisite</h3>
+              <h3 id="section-3-1">3.1 Pre-requisite</h3>
               <ul>
-                <li>Node.js (version 16 or higher)</li>
-                <li>Visual Studio Code with GitHub Copilot extension</li>
-                <li>Basic knowledge of Playwright</li>
+                <li><strong>Node.js</strong> (version 18 or higher) - <a href="https://nodejs.org" target="_blank">Download here</a></li>
+                <li><strong>Visual Studio Code</strong> - <a href="https://code.visualstudio.com" target="_blank">Download here</a></li>
+                <li><strong>GitHub Copilot</strong> subscription (required for AI assistance)</li>
               </ul>
 
-              <h3 id="section-3-2">3.1 Install Playwright MCP Server</h3>
-              <h6>
-                Option 1:
-              </h6>
-              <p>
-                You can go to <a href="https://github.com/microsoft/playwright-mcp">https://github.com/microsoft/playwright-mcp</a> and click VS Code to install Playwright MCP Server extension:
-              </p>
-              <div class="blog-header-image">
-                <img src="assets/img/Blog/download-MCP-server.jpg" alt="download-MCP-server">
+              <h3 id="section-3-2">3.2 Install Playwright MCP Server</h3>
+              
+              <div style="margin-bottom: 25px;">
+                <h4 style="color: #0078d4; margin-bottom: 10px;">⚙️ Configure MCP Server</h4>
+                <p style="margin-left: 20px; color: #555; margin-bottom: 15px;">
+                  Add the following configuration to connect GitHub Copilot with Playwright MCP Server:
+                </p>
               </div>
-              <h6>
-                Option 2:
-              </h6>
-              <p>
-                👣 Step 1, you need to install the Playwright MCP Server package. Open your terminal and run the following command:
+
+              <p style="margin-bottom: 15px;">
+                <strong>Configuration JSON:</strong>
               </p>
-              <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>npm install -g @playwright/mcp-server</code></pre>
-              <p>
-                👣 Step 2, after installation, configure the MCP Server in your VS Code settings. Add the following configuration to your
-                <code>mcp-config.json</code> file:
+              <pre style="background: #f4f4f4; padding: 20px; border-radius: 8px; overflow-x: auto; position: relative; border: 1px solid #e0e0e0;">
+                <code style="color: #333; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.6;">
+{
+  <span style="color: #0451a5;">"mcpServers"</span>: {
+    <span style="color: #0451a5;">"playwright"</span>: {
+      <span style="color: #0451a5;">"command"</span>: <span style="color: #a31515;">"npx"</span>,
+        <span style="color: #0451a5;">"args"</span>: [
+          <span style="color: #a31515;">"@playwright/mcp@latest"</span>
+        ]
+      }
+    }
+}</code></pre>
+              
+              <div style="margin-top: 15px; margin-bottom: 30px;">
+                <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer"
+                   style="display: inline-block; background: #0078d4; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; margin-right: 10px; font-size: 13px; font-weight: 500;">
+                  📦 View on GitHub
+                </a>
+                <button onclick="copyConfig()" id="copyBtn"
+                   style="display: inline-block; background: #16c98d; color: white; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer; font-size: 13px; font-weight: 500;">
+                  📋 Copy Config
+                </button>
+              </div>
+
+              <script>
+              function copyConfig() 
+{
+const config = `{
+    "mcpServers": {
+      "playwright": {
+        "command": "npx",
+        "args": [
+          "@playwright/mcp@latest"
+        ]
+      }
+    }
+  }`;
+                navigator.clipboard.writeText(config).then(() => {
+                  const btn = document.getElementById('copyBtn');
+                  btn.textContent = '✅ Copied!';
+                  btn.style.background = '#28a745';
+                  setTimeout(() => {
+                    btn.innerHTML = '📋 Copy Config';
+                    btn.style.background = '#16c98d';
+                  }, 2000);
+                });
+              }
+              </script>
+
+              <p style="margin-top: 20px; padding: 12px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px; font-size: 14px;">
+                <strong>💡 How to enable:</strong><br>
+                1. Open <strong>GitHub Copilot Settings</strong> → Click <strong>Copilot icon</strong> (bottom bar) → <strong>⚙️ Settings</strong> → <strong>"MCP Servers"</strong><br>
+                2. Click <strong>"Add Server"</strong> → Name: <code>playwright</code> → Click <strong>"Copy Config"</strong> button above and paste the configuration
               </p>
-              <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;">
-                <code>{
-                  "mcpServers": {
-                    "playwright": {
-                      "command": "npx",
-                      "args": [
-                        "@playwright/mcp@latest"
-                      ]
-                    }
-                  }
-                }</code>
-              </pre>
-              <h3 id="section-3-3">3.2 Configuration</h3>
+
+              <div style="margin-top: 20px; padding: 12px; background: #d4edda; border-left: 4px solid #28a745; border-radius: 4px; font-size: 14px;">
+                <strong>✅ Note:</strong> MCP Server will <strong>auto-start</strong> via <code>npx</code> command. No manual installation required!
+              </div>
+              
+              <h3 id="section-3-3" style="margin-top: 30px;">3.3 Verify Installation</h3>
               <p>
-                After installation, configure the MCP Server in your VS Code settings. Add the following configuration to your
-                <code>settings.json</code> file:
+                To verify that Playwright MCP Server is working correctly:
               </p>
-              <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;">
-                
-              </pre>
-              <h3 id="section-3-4">3.3 Start playing with Playwright MCP Server</h3>
+              <ol style="line-height: 1.8;">
+                <li>Open a new file in VS Code</li>
+                <li>Start GitHub Copilot Chat (<code>Ctrl+I</code> or <code>Cmd+I</code>)</li>
+                <li>Type: <strong>"@playwright navigate to https://google.com and take a screenshot"</strong></li>
+                <li>Copilot should generate Playwright code using MCP Server capabilities</li>
+              </ol>
+              
+              <h3 id="section-3-4" style="margin-top: 30px;">3.4 Start Playing with Playwright MCP Server</h3>
               <p>
-                Now you're ready to start using Playwright MCP Server with GitHub Copilot! Open a new file and start describing your
-                test scenarios. The AI will generate accurate Playwright code with proper selectors and best practices.
+                Now you're ready to start using Playwright MCP Server with GitHub Copilot! Here are some examples:
+              </p>
+              <ul style="line-height: 1.8;">
+                <li><strong>Generate test scripts:</strong> "@playwright create a test to login with username and password"</li>
+                <li><strong>Fix broken tests:</strong> "@playwright update selectors in my failing test"</li>
+                <li><strong>Execute tests:</strong> "@playwright run all tests and show me the results"</li>
+                <li><strong>Debug issues:</strong> "@playwright analyze why my test is failing"</li>
+              </ul>
+              <p style="margin-top: 15px;">
+                The AI will generate accurate Playwright code with proper selectors, waits, and best practices automatically!
               </p>
             </div>
 
@@ -268,7 +364,7 @@
 
             <!-- Reference Servers -->
             <div class="reference-servers">
-              <h3>Reference Servers</h3>
+              <h3>Phuc Tan Dinh</h3>
             </div>
 
           </div>
@@ -280,7 +376,7 @@
     </section><!-- /Blog Details Section -->
 
   </main>
-
+  </div>
   <footer id="footer" class="footer position-relative light-background">
     <div class="container">
       <h3 class="sitename">Phuc Tan Dinh</h3>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>try{var q=new URLSearchParams(location.search).get('theme'),t=q||localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Custom Agent: Automated Component, Page &amp; Test Case Generation via Atlassian MCP</title>
+  <meta content="A practical guide for QC engineers to build a GitHub Copilot custom agent that reads Jira through Atlassian MCP, analyzes impacted pages and selectors, generates evidence-based test cases, and publishes to Confluence by default." name="description">
+  <meta content="GitHub Copilot, custom agent, Atlassian MCP, Jira, Confluence, QA automation, test case generation" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/shell.css?v=20261102" rel="stylesheet">
+  <link href="assets/css/articles.css?v=20261102" rel="stylesheet">
+
+  <!-- Google Fonts for handwriting style -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="blog-details-page">
+
+  <header class="site-nav">
+    <div class="topbar">
+      <div class="wrap">
+        <span class="status-line"><i></i> Open to remote &amp; international opportunities</span>
+        <span class="loc"><i class="bi bi-geo-alt"></i> Nha Trang, Vietnam · UTC+7</span>
+        <span class="topbar-right">
+          <a class="mail" href="mailto:dinhtanphuc47@gmail.com"><i class="bi bi-envelope"></i> dinhtanphuc47@gmail.com</a>
+          <span class="social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></span>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+        </span>
+      </div>
+    </div>
+    <div class="mainbar">
+      <div class="wrap">
+        <a class="brand" href="index.htmlindex.html">
+          <img src="assets/img/my-profile-img.jpg" alt="" width="40" height="40">
+          <span><b>Phuc Tan Dinh<em>.</em></b><small>QC Engineer</small></span>
+        </a>
+        <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" id="menuBtn"><i class="bi bi-list"></i></button>
+        <ul id="menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#work">Work &amp; Experience</a></li>
+          <li><a href="index.html#samples">Samples</a></li>
+          <li><a href="blog.html" class="current">Writing</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="blog-details" class="blog-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="blog-detail-layout">
+
+          <aside class="blog-toc-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="blog-toc-list">
+              <li class="active">
+                <a href="#section-1">1. Overview</a>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-1-1">1.1 What this agent solves</a></li>
+                  <li><a href="#section-1-2">1.2 Real-world example</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#section-2">2. Prerequisites</a>
+              </li>
+              <li>
+                <a href="#section-3">3. Build the Custom Agent</a>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-3-1">3.1 Create the agent file</a></li>
+                  <li><a href="#section-3-2">3.2 Define the role</a></li>
+                  <li><a href="#section-3-3">3.3 Declare tools and delivery</a></li>
+                  <li><a href="#section-3-4">3.4 Design the workflow</a></li>
+                  <li><a href="#section-3-5">3.5 Add packaging and constraints</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#section-4">4. How to Use the Agent</a>
+              </li>
+              <li><a href="#section-5">5. TSV vs Confluence Variant</a></li>
+              <li><a href="#section-6">6. Benefits</a></li>
+              <li><a href="#section-7">7. Limitations</a></li>
+              <li><a href="#section-8">8. Advanced Tips</a></li>
+              <li><a href="#section-9">9. Quick Start Checklist</a></li>
+            </ul>
+
+            <div class="blog-project-info" style="margin-top: 30px;">
+              <h3>Project information</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Category:</strong> Quality Solutions</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Author:</strong> Phuc Tan Dinh</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Published:</strong> April 9, 2026</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Reading time:</strong> 12 min</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="blog-content-area">
+
+            <div class="blog-header-image">
+              <a href="assets/img/Blog/custom-agents.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/custom-agents.jpg" alt="Custom Agent for Jira-driven test case generation">
+              </a>
+            </div>
+
+            <div class="blog-content-section">
+              <p>
+                This guide shows QC engineers how to build a custom GitHub Copilot agent in VS Code that reads Jira tickets through Atlassian MCP,
+                inspects impacted components, pages, selectors, and flows in the repository, then produces evidence-based test cases.
+              </p>
+              <p>
+                For this delivery variant, publishing to Confluence is the default output. That matters, but it is still a secondary packaging step.
+                The primary responsibility is ticket analysis, code-impact inspection, and testcase generation.
+              </p>
+            </div>
+
+            <div class="blog-content-section" id="section-1">
+              <h2>1. Overview</h2>
+
+              <h3 id="section-1-1">1.1 What this agent solves</h3>
+              <p>
+                Many teams still copy Jira acceptance criteria into spreadsheets or Confluence by hand, then try to infer the impacted UI and flows from memory.
+                That approach is slow and usually drops context. A custom agent can do the heavy lifting earlier in the process.
+              </p>
+              <ul style="line-height: 2;">
+                <li>Read the Jira ticket through Atlassian MCP</li>
+                <li>Scan the workspace for impacted pages, selectors, POMs, tests, and helpers</li>
+                <li>Generate an impact assessment backed by repository evidence</li>
+                <li>Produce a structured test case set before any delivery formatting starts</li>
+                <li>Create or update the Confluence page only after the testcase set is complete</li>
+              </ul>
+
+              <h3 id="section-1-2">1.2 Real-world example</h3>
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #0078d4;">
+                <p style="margin-bottom: 10px;"><strong>PhucGenerateTestCFpage</strong> reads Jira ticket <strong>FKBS2-2585</strong> through Atlassian MCP, scans the impacted selectors and pages, prints an impact assessment, generates structured test cases, and then creates or updates a Confluence page in the FKBS testcase area.</p>
+                <p style="margin-bottom: 0;">That sequencing is the core design decision of this agent: Jira evidence first, testcase generation second, Confluence publishing last.</p>
+              </div>
+            </div>
+
+            <div class="blog-content-section" id="section-2">
+              <h2>2. Prerequisites</h2>
+              <div style="overflow-x: auto; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);">
+                  <thead>
+                    <tr style="background: #0078d4; color: white;">
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 70px;">#</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Requirement</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">1</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>VS Code</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Version 1.99 or later</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">2</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>GitHub Copilot extension</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Active subscription and Copilot Chat enabled</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">3</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Agent mode enabled</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Turn on <code>chat.agent.enabled</code> in VS Code settings</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">4</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Repository access</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">The agent needs workspace access to inspect components, selectors, POMs, tests, and helper files</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">5</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Atlassian MCP configured</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Required to read Jira tickets and, for this delivery variant, publish the final testcase set to Confluence</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="blog-content-section" id="section-3">
+              <h2>3. Step by Step: Build the Custom Agent</h2>
+              <p>
+                The design principle behind <code>PhucGenerateTestCFpage.agent.md</code> is straightforward: Jira reading and testcase generation come first; Confluence publishing comes after.
+              </p>
+
+              <h3 id="section-3-1">3.1 Create a New Agent File</h3>
+              <p>
+                Agent definitions live in <code>.github/agents/</code> at the root of the repository. Create a separate file for the Confluence-delivery variant:
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>.github/agents/PhucGenerateTestCFpage.agent.md</code></pre>
+              <p>
+                Keeping this variant separate from a TSV-focused agent avoids mixing delivery rules, page hierarchy constraints, and formatting responsibilities.
+              </p>
+
+              <h3 id="section-3-2">3.2 Define the Role: Jira/MCP First, Confluence Second</h3>
+              <p>
+                The role section should state the priority explicitly. The agent exists to turn Jira requirements into evidence-based test cases. Confluence is only how this variant publishes the final output.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>---
+description: "Use when QC needs Jira ticket analysis, impacted component/page review, selector inspection, and evidence-based testcase generation with default Confluence delivery via Atlassian MCP."
+name: "PhucGenerateTestCFpage"
+tools: [read, search, edit, todo, atlassian/*]
+---
+You are PhucGenerateTestCFpage. Your primary responsibility is to read Jira tickets through Atlassian MCP,
+inspect impacted pages, components, selectors, shared flows, POMs, and existing tests in the workspace,
+then generate the right structured testcase set.
+
+Confluence publishing is the default delivery path for this variant, but it only happens after testcase
+generation is complete.</code></pre>
+              <p>
+                That wording prevents the agent from over-optimizing for page creation while neglecting impact analysis and testcase quality.
+              </p>
+
+              <h3 id="section-3-3">3.3 Declare MCP and Delivery Tools</h3>
+              <p>
+                The agent needs tools for two layers of work: evidence gathering and delivery. In the example above, <code>atlassian/*</code> assumes the Atlassian MCP server is registered with the server alias <code>atlassian</code>.
+              </p>
+              <ul style="line-height: 2;">
+                <li><strong>read</strong> and <strong>search</strong> for repository inspection</li>
+                <li><strong>todo</strong> for multi-step testcase generation workflow</li>
+                <li><strong>edit</strong> when the user also asks for a local TSV or artifact output</li>
+                <li><strong>atlassian/*</strong> for Jira ticket reading and Confluence create, update, or move actions</li>
+              </ul>
+              <p>
+                Listing tools by name keeps the agent anchored to the right MCP surface instead of drifting into generic chat-only behavior.
+              </p>
+
+              <h3>3.4 Set the Default Destination for This Variant</h3>
+              <p>
+                This section is only about where the finished testcase set should land when Confluence is the selected output. Define a predictable title pattern, parent area, and hierarchy rule.
+              </p>
+              <div style="background: #fff7e6; padding: 18px; border-radius: 8px; border-left: 4px solid #f0ad4e; margin: 20px 0;">
+                <p style="margin-bottom: 10px;"><strong>Recommended defaults</strong></p>
+                <ul style="margin-bottom: 0; line-height: 2;">
+                  <li>Destination space: FKBS testcase area</li>
+                  <li>Template page: <strong>3553951820</strong></li>
+                  <li>Hierarchy rule: create new pages as siblings of the template page</li>
+                  <li>Title pattern: <code>[Ticket Key] - [Short Requirement] - Test Cases</code></li>
+                </ul>
+              </div>
+
+              <h3 id="section-3-4">3.5 Design the Workflow With Testcase Generation First</h3>
+              <p>
+                The workflow should make the sequencing explicit so Confluence packaging never jumps ahead of analysis.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>## Workflow
+1. Read the Jira ticket and linked context through Atlassian MCP.
+2. Inspect impacted components, selectors, pages, shared flows, tests, and helpers in the workspace.
+3. Produce an impact assessment with evidence.
+4. Generate structured test cases.
+5. Search Confluence for an existing page for the ticket.
+6. Update the existing page when appropriate; otherwise create a new page.
+7. Publish Confluence output only after testcase generation is complete.
+8. Export TSV only when the user explicitly asks for it.</code></pre>
+              <p>
+                Step 7 is what keeps the delivery mode honest. Packaging is downstream of testcase design, not a substitute for it.
+              </p>
+
+              <h3 id="section-3-5">3.6 Add Confluence Packaging Rules, Delivery Mode, and Constraints</h3>
+              <p>
+                Confluence rules still matter, but they govern how the generated testcase set is packaged, not how it is designed.
+              </p>
+              <div style="overflow-x: auto; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);">
+                  <thead>
+                    <tr style="background: #0078d4; color: white;">
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Rule</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Why it matters</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Page naming convention</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Makes ticket-to-page traceability obvious</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Template reuse required</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Keeps layout consistent with the FKBS team standard and reuses page <strong>3553951820</strong></td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Page width and readability</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Helps wide testcase tables stay usable even when full-width cannot be set by API</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Test case content rules</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Ensures each case still includes preconditions, steps, expected results, and evidence notes</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Duplicate avoidance</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Searches Confluence before publishing so the agent updates the right page instead of creating clutter</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                The delivery hierarchy should be stated directly: testcase generation is the primary outcome; Confluence publication is the default delivery mode; TSV is secondary and only produced when requested.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>## Critical Constraints
+- Do not publish before testcase generation is complete.
+- Do not invent selectors, components, flows, or coverage not found in Jira or the repository.
+- Always show an impact assessment before finalizing the testcase set.
+- Reuse template page 3553951820 for structure.
+- Search for an existing Confluence page before creating a new one.
+- Keep new pages as siblings of the template page.
+- Treat TSV as optional secondary output, not the default.</code></pre>
+
+              <h3>3.7 Commit and Share</h3>
+              <p>
+                After validating the guide and agent together, commit the new agent file so the workflow becomes available to the rest of the team.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>git add .github/agents/PhucGenerateTestCFpage.agent.md
+git commit -m "Add Confluence delivery testcase generation agent"</code></pre>
+            </div>
+
+            <div class="blog-content-section" id="section-4">
+              <h2>4. How to Use the Agent</h2>
+
+              <h3>4.1 Invoking the Agent</h3>
+              <ol style="line-height: 2;">
+                <li>Open Copilot Chat.</li>
+                <li>Switch to Agent mode.</li>
+                <li>Select <strong>PhucGenerateTestCFpage</strong>.</li>
+                <li>Ask for ticket analysis and testcase generation.</li>
+              </ol>
+
+              <h3>4.2 Example Prompts</h3>
+              <div style="overflow-x: auto; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);">
+                  <thead>
+                    <tr style="background: #0078d4; color: white;">
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Prompt</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">What happens</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>Analyze FKBS2-2585 and generate test cases</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Reads the Jira ticket via Atlassian MCP, scans the codebase, generates the testcase set, then publishes it to Confluence by default</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>Generate test cases for FKBS2-2500</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Runs evidence gathering, impact assessment, and testcase generation with Confluence delivery as the default output</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>Update the test cases for FKBS2-2500</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Searches Confluence first and updates the existing page instead of creating a duplicate</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>Analyze FKBS2-2585 and also export TSV</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Publishes the Confluence page and creates a local TSV artifact as secondary output</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>4.3 What the Agent Does</h3>
+              <div style="background: #d4edda; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745; margin: 15px 0;">
+                <ol style="line-height: 2; margin-bottom: 0;">
+                  <li>Reads Jira requirements, acceptance criteria, linked pages, and ticket context via Atlassian MCP.</li>
+                  <li>Searches the repository for impacted UI components, selectors, POMs, tests, and shared flows.</li>
+                  <li>Builds an impact assessment that explains what changed and why each testcase exists.</li>
+                  <li>Generates a structured testcase set with preconditions, steps, expected results, and evidence notes.</li>
+                  <li>Searches Confluence for an existing page, then updates or creates the page in the FKBS hierarchy.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="blog-content-section" id="section-5">
+              <h2>5. Key Differences from the TSV Agent</h2>
+              <div style="overflow-x: auto; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);">
+                  <thead>
+                    <tr style="background: #0078d4; color: white;">
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Aspect</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">TSV Agent</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Confluence Delivery Agent</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Primary focus</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Generate an ITMS-ready testcase export from Jira evidence</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Generate a testcase set from Jira evidence and package it into Confluence by default</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Default delivery channel</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Local <code>.tsv</code> file in the workspace</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Confluence page in FKBS</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Secondary delivery</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">None</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Local <code>.tsv</code> only when the user asks</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Tools declared</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Jira MCP and file output</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Jira MCP plus Confluence create, update, and move</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Template reference</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">None</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Uses page <strong>3553951820</strong> as the team layout reference</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Duplicate handling</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Overwrites the local file</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Searches Confluence and updates the existing page when appropriate</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Page width handling</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Not applicable</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Checks template width and optimizes readability when full-width cannot be set</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Hierarchy management</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Not applicable</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Keeps generating pages as siblings of the template page</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="blog-content-section" id="section-6">
+              <h2>6. Benefits</h2>
+              <div style="overflow-x: auto; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);">
+                  <thead>
+                    <tr style="background: #0078d4; color: white;">
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Benefit</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Explanation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Automated Jira-to-testcase flow</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">The agent reads the ticket and turns it into a structured testcase set without manual rewriting.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Evidence-based impact coverage</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Selectors, pages, shared flows, and existing tests can be inspected before the cases are generated.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Consistent team delivery</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">For this variant, the final testcase set is published into the existing Confluence structure instead of living only in chat.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Duplicate prevention</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">The agent can update an existing page instead of creating clutter in the FKBS space.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Dual output when needed</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Confluence remains the default channel while TSV is still available as a secondary artifact for ITMS import.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Better QC handoff</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">The team gets both the testcase logic and a shareable destination page without losing the Jira-driven design intent.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="blog-content-section" id="section-7">
+              <h2>7. Limitations and Considerations</h2>
+              <div style="overflow-x: auto; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);">
+                  <thead>
+                    <tr style="background: #0078d4; color: white;">
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Limitation</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Mitigation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>AI can still hallucinate</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Always review the generated testcase set before execution.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Confluence page width via API</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Page width may still default to fixed width, so manual full-width adjustment can be needed after publishing.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>MCP setup required</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Each machine needs Atlassian MCP configured correctly for both Jira and Confluence.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Large ticket context</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Very large tickets or broad refactors may need to be split into smaller generation requests.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><strong>Not a replacement for QC judgment</strong></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">The agent accelerates testcase design but does not replace exploratory thinking or product knowledge.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="blog-content-section" id="section-8">
+              <h2>8. Advanced Tips</h2>
+
+              <h3>8.1 MCP Server Configuration</h3>
+              <p>
+                A common setup is to register an Atlassian MCP server in <code>.vscode/mcp.json</code> and expose both Jira and Confluence capabilities through the same server alias.
+                The exact package name and environment variables depend on the Atlassian MCP server implementation your team chose.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>{
+  "servers": {
+    "atlassian": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "your-atlassian-mcp-package"],
+      "env": {
+        "ATLASSIAN_BASE_URL": "https://your-company.atlassian.net",
+        "ATLASSIAN_USER_EMAIL": "qa-team@example.com",
+        "ATLASSIAN_API_TOKEN": "${input:atlassianApiToken}"
+      }
+    }
+  }
+}</code></pre>
+              <p>
+                Once the server alias is in place, the agent can reference it with <code>tools: [atlassian/*]</code> in the frontmatter.
+              </p>
+
+              <h3>8.2 Iterate After Real Usage</h3>
+              <p>
+                After 3 to 5 real tickets, review the agent's output. If the same issue keeps showing up, refine the guide or add a precise new constraint rather than piling on generic instructions.
+              </p>
+
+              <h3>8.3 Keep Delivery and Design Separate</h3>
+              <p>
+                If QC feedback says the Confluence page structure looks fine but testcase scope is weak, improve the Jira-reading, impact-analysis, and testcase rules first. Do not over-focus on delivery formatting when the real problem is test design quality.
+              </p>
+            </div>
+
+            <div class="blog-content-section" id="section-9">
+              <h2>9. Quick Start Checklist</h2>
+              <ul style="line-height: 2; list-style: none; padding-left: 0;">
+                <li>✅ VS Code and Copilot Chat are ready</li>
+                <li>✅ Agent mode is enabled</li>
+                <li>✅ Atlassian MCP is configured</li>
+                <li>✅ <code>.github/agents/</code> exists in the repository</li>
+                <li>✅ The custom agent file is created</li>
+                <li>✅ The role is written as Jira/MCP-first and testcase-first</li>
+                <li>✅ The workflow places Confluence after testcase generation</li>
+                <li>✅ The template page and destination rules are defined</li>
+                <li>✅ The guide is tested with a real Jira ticket</li>
+              </ul>
+            </div>
+
+            <div class="blog-content-section">
+              <h2>Conclusion</h2>
+              <p>
+                The strongest version of this workflow is not a Confluence page generator. It is a Jira-driven testcase design agent that happens to publish to Confluence by default.
+                That distinction is what keeps the output useful for real QC work.
+              </p>
+              <p>
+                If you already use MCP-backed testing workflows, this pattern pairs well with
+                <a href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html">Playwright MCP for AI-Driven Test Automation</a>,
+                <a href="exploration-testing-with-playwright-mcp.html">Exploratory Testing with Playwright MCP</a>, and
+                <a href="self-healing-in-test-automation.html">Self-Healing in Automation Testing</a>.
+              </p>
+              <div style="margin-top: 25px; padding: 16px 20px; background: #f8f9fa; border-radius: 8px;">
+                <p style="margin: 0;"><strong>Page updated by QA Automation Team - April 2026</strong></p>
+              </div>
+            </div>
+
+            <div class="reference-servers">
+              <h3>Phuc Tan Dinh</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="social foot-social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+      <div>© 2026 Phuc Tan Dinh · QC Engineer · Nha Trang, Vietnam</div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    })();
+  </script>
+  <script src="assets/js/theme.js?v=20261102"></script>
+</body>
+
+</html>

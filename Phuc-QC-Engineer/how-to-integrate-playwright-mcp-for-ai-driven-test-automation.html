@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script>try{var q=new URLSearchParams(location.search).get('theme'),t=q||localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>How to Integrate Playwright MCP for AI-Driven Test Automation</title>
@@ -26,6 +27,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/shell.css?v=20261102" rel="stylesheet">
+  <link href="assets/css/articles.css?v=20261102" rel="stylesheet">
 
   <!-- Google Fonts for handwriting style -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,53 +44,35 @@
 
 <body class="blog-details-page">
 <div>
-  <header id="header" class="header dark-background d-flex flex-row">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+  <header class="site-nav">
+    <div class="topbar">
+      <div class="wrap">
+        <span class="status-line"><i></i> Open to remote &amp; international opportunities</span>
+        <span class="loc"><i class="bi bi-geo-alt"></i> Nha Trang, Vietnam · UTC+7</span>
+        <span class="topbar-right">
+          <a class="mail" href="mailto:dinhtanphuc47@gmail.com"><i class="bi bi-envelope"></i> dinhtanphuc47@gmail.com</a>
+          <span class="social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></span>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+        </span>
+      </div>
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Phuc Tan Dinh</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    <div class="mainbar">
+      <div class="wrap">
+        <a class="brand" href="index.htmlindex.html">
+          <img src="assets/img/my-profile-img.jpg" alt="" width="40" height="40">
+          <span><b>Phuc Tan Dinh<em>.</em></b><small>QC Engineer</small></span>
+        </a>
+        <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" id="menuBtn"><i class="bi bi-list"></i></button>
+        <ul id="menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#work">Work &amp; Experience</a></li>
+          <li><a href="index.html#samples">Samples</a></li>
+          <li><a href="blog.html" class="current">Writing</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
     </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="index.html#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
-        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="blog.html"><i class="bi bi-images navicon"></i> Blog</a></li>
-        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li>
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
   </header>
 </div>
   <div>
@@ -251,16 +236,47 @@
                 <li><strong>Visual Studio Code</strong> - <a href="https://code.visualstudio.com" target="_blank">Download here</a></li>
                 <li><strong>GitHub Copilot</strong> subscription (required for AI assistance)</li>
               </ul>
-
               <h3 id="section-3-2">3.2 Install Playwright MCP Server</h3>
               
               <div style="margin-bottom: 25px;">
+                <h4 style="color: #0078d4; margin-bottom: 10px;">⚙️ Setting Playwright MCP Server</h4>
+                <p style="margin-left: 20px; color: #555; margin-bottom: 15px;">
+                  Install Playwright MCP Server to connect with GitHub Copilot by github.
+                <p style="margin-left: 20px; color: #555; margin-bottom: 15px;">
+                 You can go to <a href="https://github.com/microsoft/playwright-mcp" rel="noopener noreferrer">https://github.com/microsoft/playwright-mcp</a> and click VS Code symbol in the README.
+                </p>
+                <div class="blog-header-image-2">
+                  <a href="assets/img/Blog/install-MCP-server.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                    <img src="assets/img/Blog/install-MCP-server.jpg" alt="Install Playwright MCP Server">
+                  </a>
+                </div>
+              </div>   
+              <div style="margin-top: 15px; margin-bottom: 30px;">
+                <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer"
+                   style="display: inline-block; background: #0078d4; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; margin-right: 10px; font-size: 13px; font-weight: 500;">
+                  📦 View on GitHub
+                </a>
+              </div> 
+              <p style="margin-left: 20px; color: #555; margin-bottom: 15px;">
+                 After click VS Code symbol, directly move to Visual Studio Code Marketplace. Click the button to install Playwright MCP Server extension on your VS Code.
+                </p>
+                <div class="blog-header-image-2">
+                  <a href="assets/img/Blog/install-MCP-server-1.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                    <img src="assets/img/Blog/install-MCP-server-1.jpg" alt="Install Playwright MCP Server">
+                  </a>
+                </div>          
                 <h4 style="color: #0078d4; margin-bottom: 10px;">⚙️ Configure MCP Server</h4>
                 <p style="margin-left: 20px; color: #555; margin-bottom: 15px;">
-                  Add the following configuration to connect GitHub Copilot with Playwright MCP Server:
+                  Add the following configuration to connect GitHub Copilot with Playwright MCP Server.
                 </p>
-              </div>
-
+              <p style="margin-left: 20px; color: #555; margin-bottom: 15px;">
+                 Create a new file named <code>mcp.config.json</code> in your project root and paste the above configuration into it.
+                </p>
+                <div class="blog-header-image-2">
+                  <a href="assets/img/Blog/install-MCP-server-2.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                    <img src="assets/img/Blog/install-MCP-server-2.jpg" alt="Install Playwright MCP Server">
+                  </a>
+                </div>
               <p style="margin-bottom: 15px;">
                 <strong>Configuration JSON:</strong>
               </p>
@@ -278,10 +294,6 @@
 }</code></pre>
               
               <div style="margin-top: 15px; margin-bottom: 30px;">
-                <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer"
-                   style="display: inline-block; background: #0078d4; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; margin-right: 10px; font-size: 13px; font-weight: 500;">
-                  📦 View on GitHub
-                </a>
                 <button onclick="copyConfig()" id="copyBtn"
                    style="display: inline-block; background: #16c98d; color: white; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer; font-size: 13px; font-weight: 500;">
                   📋 Copy Config
@@ -313,7 +325,7 @@ const config = `{
               }
               </script>
 
-              <p style="margin-top: 20px; padding: 12px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px; font-size: 14px;">
+              <!-- <p style="margin-top: 20px; padding: 12px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px; font-size: 14px;">
                 <strong>💡 How to enable:</strong><br>
                 1. Open <strong>GitHub Copilot Settings</strong> → Click <strong>Copilot icon</strong> (bottom bar) → <strong>⚙️ Settings</strong> → <strong>"MCP Servers"</strong><br>
                 2. Click <strong>"Add Server"</strong> → Name: <code>playwright</code> → Click <strong>"Copy Config"</strong> button above and paste the configuration
@@ -321,7 +333,7 @@ const config = `{
 
               <div style="margin-top: 20px; padding: 12px; background: #d4edda; border-left: 4px solid #28a745; border-radius: 4px; font-size: 14px;">
                 <strong>✅ Note:</strong> MCP Server will <strong>auto-start</strong> via <code>npx</code> command. No manual installation required!
-              </div>
+              </div> -->
               
               <h3 id="section-3-3" style="margin-top: 30px;">3.3 Verify Installation</h3>
               <p>
@@ -377,31 +389,16 @@ const config = `{
 
   </main>
   </div>
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <h3 class="sitename">Phuc Tan Dinh</h3>
-      <p>Et aut eum quas repudiandae sint. Voluptates nesciunt nihil explicabo et. Optio quo molestias similique in omnis.</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-facebook icon-blog-footer-1"></i></a>
-        <a href=""><i class="bi bi-instagram icon-blog-footer-1"></i></a>
-        <a href=""><i class="bi bi-skype icon-blog-footer-1"></i></a>
-        <a href=""><i class="bi bi-linkedin icon-blog-footer-1"></i></a>
-      </div>
-      <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">PhucBoo</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-        Designed by <a href="https://www.facebook.com/phuc.boo.99/">PhucBoo</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
-      </div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="social foot-social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+      <div>© 2026 Phuc Tan Dinh · QC Engineer · Nha Trang, Vietnam</div>
     </div>
   </footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -418,6 +415,17 @@ const config = `{
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    (function () {
+      var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    })();
+  </script>
+  <script src="assets/js/theme.js?v=20261102"></script>
 </body>
 
 </html>

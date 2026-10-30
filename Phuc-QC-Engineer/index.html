@@ -2,903 +2,526 @@
 <html lang="en">
 
 <head>
+  <script>try{var t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Phuc Tan Dinh - QC Engineer</title>
-  <meta content="Professional QC Engineer  showcasing skills in manual testing, UI automation, and quality assurance" name="description">
-  <meta content="QC Engineer, Quality Assurance, Testing, Automation, Phuc Tan Dinh" name="keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phuc Tan Dinh | QC Engineer – Manual, Automation &amp; AI-Assisted Testing</title>
+  <meta name="description" content="Phuc Tan Dinh is a QC Engineer with nearly 5 years of experience in manual testing, Cypress/Playwright automation, API testing and AI-assisted QA. Open to remote and international opportunities.">
+  <meta name="keywords" content="QC Engineer, QA Engineer, Test Automation, Playwright, Cypress, API Testing, Postman, JMeter, Vietnam">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Phuc Tan Dinh | QC Engineer">
+  <meta property="og:description" content="Manual, automation and AI-assisted testing. Nearly 5 years of QA experience.">
+  <meta property="og:url" content="https://phucgotest.online">
+  <meta property="og:image" content="https://phucgotest.online/assets/img/my-profile-img.jpg">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/shell.css?v=20261102" rel="stylesheet">
+  <link href="assets/css/portfolio.css?v=20261102" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/blog-carousel.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: iBlog
-  * Template URL: https://bootstrapmade.com/iBlog-bootstrap-Blog-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Phuc Tan Dinh",
+    "jobTitle": "QC Engineer",
+    "url": "https://phucgotest.online",
+    "email": "mailto:dinhtanphuc47@gmail.com",
+    "worksFor": { "@type": "Organization", "name": "Infodation" },
+    "alumniOf": "Nha Trang University",
+    "address": { "@type": "PostalAddress", "addressLocality": "Nha Trang", "addressCountry": "VN" },
+    "knowsAbout": ["Software Testing", "Test Automation", "Playwright", "Cypress", "API Testing", "Exploratory Testing"]
+  }
+  </script>
 </head>
 
-<body class="index-page">
+<body>
 
-  <header id="header" class="header dark-background d-flex flex-row">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  <div id="progress" aria-hidden="true"></div>
+  <a class="skip" href="#top">Skip to content</a>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+  <header class="site-nav">
+    <div class="topbar">
+      <div class="wrap">
+        <span class="status-line"><i></i> Open to remote &amp; international opportunities</span>
+        <span class="loc"><i class="bi bi-geo-alt"></i> Nha Trang, Vietnam · UTC+7</span>
+        <span class="topbar-right">
+          <a class="mail" href="mailto:dinhtanphuc47@gmail.com"><i class="bi bi-envelope"></i> dinhtanphuc47@gmail.com</a>
+          <span class="social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></span>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+          <button class="lang-btn" id="langBtn" aria-label="Switch language" title="Switch language">VI</button>
+        </span>
+      </div>
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Phuc Tan Dinh</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    <div class="mainbar">
+      <div class="wrap">
+        <a class="brand" href="index.html">
+          <img src="assets/img/my-profile-img.jpg" alt="" width="40" height="40">
+          <span><b>Phuc Tan Dinh<em>.</em></b><small>QC Engineer</small></span>
+        </a>
+        <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" id="menuBtn"><i class="bi bi-list"></i></button>
+        <ul id="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#work">Work &amp; Experience</a></li>
+          <li><a href="#samples">Samples</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
     </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="blog.html"><i class="bi bi-images navicon"></i> Blog</a></li>
-        <li><a href="#testimonials"><i class="bi bi-hdd-stack navicon"></i> Testimonials</a></li>
-        <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li> -->
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-
   </header>
 
-  <main class="main">
+  <main id="top">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Phuc Tan Dinh</h2>
-        <p>I'm <span class="typed" data-typed-items="QC Engineer, Freelancer, Small liquor store owner">QC Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>I am a dedicated Software QC Engineer with several years of experience ensuring the high quality and reliability of software products. 
-          My professional focus is on meticulous testing, issue identification, and process improvement within the development lifecycle.</p>
-        <p>Staying active is key to mental clarity. I am a big fan of team sports and precision games:</p>
-        <ul style="list-style: none; padding-left: 0;">
-            <li>
-                ⚽ Football: I enjoy both watching professional matches and playing friendly games with friends. It's a fantastic way to engage in teamwork and release energy.
-            </li>
-            <li>
-                🏸 Badminton: This is a regular part of my weekly routine. The speed, agility, and tactical thinking required in badminton are a great contrast to my daily work.
-            </li>
-        </ul>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <a href="assets/img/my-profile-img.jpg" class="glightbox">
-              <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
-            </a>
-          </div>
-          <div class="col-lg-8 content">
-            <h2>QC Engineer.</h2>
-            <p class="fst-italic py-3">
-              I'm an QC Engineer with more than 4 years in software testing
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>13 March 1999</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <a href="https://phucgotest.online">phucgotest.online</a></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+84 34 797 0454</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Nha Trang, Khanh Hoa, Viet Nam</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>27</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>dinhtanphuc47@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-            <!-- <p class="py-3">
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-            </p> -->
+    <!-- Hero -->
+    <section class="hero">
+      <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+      <div class="wrap">
+        <div>
+          <span class="badge"><i></i> Manual · Automation · AI-assisted QA</span>
+          <h1>QC Engineer building <em class="rotator" data-words="reliable software|faster releases|confident launches|quality at speed">reliable software</em> through smart testing.</h1>
+          <p>Nearly 5 years across manual testing, Cypress/Playwright automation, API testing and AI-assisted QA. I help teams catch defects earlier, shorten regression cycles and ship with confidence.</p>
+          <div class="btns">
+            <a class="btn btn-primary" href="#work">View my work <i class="bi bi-arrow-right"></i></a>
+            <a class="btn btn-ghost" href="#contact"><i class="bi bi-envelope"></i> Get in touch</a>
+            <a class="btn btn-ghost" href="assets/Phuc-Tan-Dinh-CV.pdf" download="Phuc-Tan-Dinh-CV.pdf"><i class="bi bi-download"></i> Download CV</a>
           </div>
         </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
+        <div class="portrait">
+          <img src="assets/img/my-profile-img.jpg" alt="Portrait of Phuc Tan Dinh, QC Engineer">
         </div>
-
       </div>
-
-    </section><!-- /Stats Section -->
-    <!-- Skill Section -->
-    <section id="skills" class="skills-section section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>I possess a skill set in Software Quality Control, covering everything from meticulous test case design and execution to utilizing automated tools for efficient regression testing.</p>
-        <p>My expertise lies in both Manual Testing (including functional, UAT, and exploratory testing) and developing robust scripts using frameworks like Playwright and Cypress for Test Automation.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="skills-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-automation">Automation Testing</li>
-            <li data-filter=".filter-manual">Manual Testing</li>
-            <li data-filter=".filter-api">API Testing</li>
-          </ul><!-- End Skills Filters -->
-
-          <!-- Skills Navigation Arrows -->
-          <!-- <div class="skills-nav-arrows">
-            <button class="skills-nav-prev"><i class="bi bi-arrow-left"></i></button>
-            <button class="skills-nav-next"><i class="bi bi-arrow-right"></i></button>
-          </div> -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-automation">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/app-1.jpg" class="img-fluid" alt="Selenium Automation">
-                </div>
-                <div class="skills-card-body">
-                  <h4>Selenium WebDriver</h4>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p> -->
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-manual">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/product-1.jpg" class="img-fluid" alt="Manual Testing">
-                </div>
-                <div class="skills-card-body">
-                  <h4>Technical Skills</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-api">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/branding-1.jpg" class="img-fluid" alt="API Testing">
-                </div>
-                <div class="skills-card-body">
-                  <h4>JMeter Testing</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-automation">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/app-2.jpg" class="img-fluid" alt="Cypress">
-                </div>
-                <div class="skills-card-body">
-                  <h4>Cypress Testing</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-manual">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/product-2.jpg" class="img-fluid" alt="Exploratory Testing">
-                </div>
-                <div class="skills-card-body">
-                  <h4>Analytical Skills</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-api">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/branding-2.jpg" class="img-fluid" alt="Postman">
-                </div>
-                <div class="skills-card-body">
-                  <h4>Postman API Testing</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-automation">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/app-3.jpg" class="img-fluid" alt="JUnit">
-                </div>
-                <div class="skills-card-body">
-                  <h4>JUnit Framework</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-manual">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/product-3.jpg" class="img-fluid" alt="Bug Tracking">
-                </div>
-                <div class="skills-card-body">
-                  <h4>Soft Skills</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-            <div class="col-lg-4 col-md-6 skills-item isotope-item filter-api">
-              <div class="skills-card h-100">
-                <div class="skills-card-image">
-                  <img src="assets/img/Skill/branding-3.jpg" class="img-fluid" alt="GraphQL Testing">
-                </div>
-                <div class="skills-card-body">
-                  <h4>Swagger UI Testing</h4>
-                  <a href="skill-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div><!-- End Skill Item -->
-
-          </div><!-- End Skills Container -->
-
-        </div>
-
-      </div>
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Highly motivated professional with 4 years of experience in Software Quality Assurance, complemented by a strong academic foundation holding a Bachelor's Degree in Information Technology from Nha Trang University.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
-
-            <div class="resume-item pb-0">
-              <h4>Phuc Tan Dinh</h4>
-              <p><em>Detail-oriented and results-focused Quality Control Engineer with 3+ years of comprehensive experience in Manual Testing and 1+ year specializing in UI Automation, ensuring the delivery of flawless, user-centric software solutions within stringent deadlines.</em></p>
-              <ul>
-                <li>Nam Nha Trang Ward, Khanh Hoa Province, Vietnam</li>
-                <li>(+84) 347970454</li>
-                <li>dinhtanphuc47@gmail.com</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Primary, secondary &amp; high school education in Quang Ngai</h4>
-              <h5>2004 - 2017</h5>
-              <p><em>Schools in Binh My commune, Binh Son district, Quang Ngai province</em></p>
-              <p>I can say that this is the best time of my student life. I met great friends and had wonderful teachers. I learned so much from them. They helped me grow and gave me a fantastic time.</p>
-            </div><!-- Edn Resume Item -->
-            <div class="resume-item">
-              <h4> Studing at Nha Trang University</h4>
-              <h5>2017 - 2021</h5>
-              <p><em>Nha Trang University, Khanh Hoa Province, Vietnam</em></p>
-              <p></p>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Middle QC Engineer at Infodadtion</h4>
-              <h5>2022 - Present</h5>
-              <p><em>10th Floor, VCN Tower, 02 To Huu St., South Nha Trang ward, Khanh Hoa Province, Vietnam </em></p>
-              <ul>
-                <li>Test Strategy & Planning: Responsible for developing test plans, estimating timelines, and designing detailed test cases for complex features across multiple platforms.</li>
-                <li>API Testing: Extensive experience testing RESTful APIs using Postman, JMeter and Swagger, including automated collection runs and environment variable management. </li>
-                <li>Automation Testing: Develop and maintain automation test scripts (Cypress/Playwright) for key business processes (Regression Testing) to reduce manual testing time by 40%.</li>
-                <li>Mentorship: Provide guidance and peer reviews for Fresher QC members to maintain high-quality deliverables across the team.</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Graphic design</h4>
-              <h5>2021 - 2025</h5>
-              <p><em>VCN Tower, 02 To Huu St., South Nha Trang ward, Khanh Hoa Province, Vietnam</em></p>
-              <ul>
-                <!-- <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li> -->
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Blog Section -->
-    <section id="blog" class="blog section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Latest Blog Posts</h2>
-        <p>Explore my thoughts on Quality Assurance, automation testing, and personal experiences in the tech industry</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "centeredSlides": true,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 20,
-                  "centeredSlides": true
-                },
-                "768": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 30,
-                  "centeredSlides": false
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 30,
-                  "centeredSlides": false
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <!-- Blog Slide 1 -->
-            <div class="swiper-slide">
-              <div class="blog-card">
-                <div class="blog-card-img">
-                  <img src="assets/img/Blog/app-1.jpg" class="img-fluid" alt="Generative Automation Testing">
-                </div>
-                <div class="blog-card-body">
-                  <span class="blog-category">Automation Testing</span>
-                  <h4><a href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html">How to Integrate Playwright MCP for AI-Driven Test Automation</a></h4>
-                  <div class="blog-meta">
-                    <span class="blog-date"><i class="bi bi-calendar"></i> 12th December 2025</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Blog Slide -->
-
-            <!-- Blog Slide 2 -->
-            <div class="swiper-slide">
-              <div class="blog-card">
-                <div class="blog-card-img">
-                  <img src="assets/img/Blog/self-healing-logo-3.jpg" class="img-fluid" alt="Self-Healing in Automation Testing">
-                </div>
-                <div class="blog-card-body">
-                  <span class="blog-category">Quality Solutions</span>
-                  <h4><a href="self-healing-in-test-automation.html">Self-Healing in Automation Testing</a></h4>
-                  <div class="blog-meta">
-                    <span class="blog-date"><i class="bi bi-calendar"></i> 20th November 2025</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Blog Slide -->
-
-            <!-- Blog Slide 3 -->
-            <div class="swiper-slide">
-              <div class="blog-card">
-                <div class="blog-card-img">
-                  <img src="assets/img/Blog/product-1.jpg" class="img-fluid" alt="VnExpress Marathon">
-                </div>
-                <div class="blog-card-body">
-                  <span class="blog-category">Sport</span>
-                  <h4><a href="blog-details.html">VnExpress Marathon NhaTrang August 2025!</a></h4>
-                  <div class="blog-meta">
-                    <span class="blog-date"><i class="bi bi-calendar"></i> 28th August 2025</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Blog Slide -->
-
-            <!-- Blog Slide 4 -->
-            <div class="swiper-slide">
-              <div class="blog-card">
-                <div class="blog-card-img">
-                  <img src="assets/img/Blog/branding-1.jpg" class="img-fluid" alt="Small Liquor Store">
-                </div>
-                <div class="blog-card-body">
-                  <span class="blog-category">Business</span>
-                  <h4><a href="blog-details.html">Small Liquor Store Owner</a></h4>
-                  <div class="blog-meta">
-                    <span class="blog-date"><i class="bi bi-calendar"></i> 8th December 2025</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Blog Slide -->
-
-            <!-- Blog Slide 5 -->
-            <div class="swiper-slide">
-              <div class="blog-card">
-                <div class="blog-card-img">
-                  <img src="assets/img/Blog/books-1.jpg" class="img-fluid" alt="Work Life Balance">
-                </div>
-                <div class="blog-card-body">
-                  <span class="blog-category">Family Life</span>
-                  <h4><a href="blog-details.html">Balancing Work and Family: Tips for QA Professionals</a></h4>
-                  <div class="blog-meta">
-                    <span class="blog-date"><i class="bi bi-calendar"></i> 5th December 2025</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Blog Slide -->
-
-            <!-- Blog Slide 6 -->
-            <div class="swiper-slide">
-              <div class="blog-card">
-                <div class="blog-card-img">
-                  <img src="assets/img/Blog/app-2.jpg" class="img-fluid" alt="Mobile App Testing">
-                </div>
-                <div class="blog-card-body">
-                  <span class="blog-category">Work Experience</span>
-                  <h4><a href="blog-details.html">Mobile App Testing: Common Pitfalls and Solutions</a></h4>
-                  <div class="blog-meta">
-                    <span class="blog-date"><i class="bi bi-calendar"></i> 3rd December 2025</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Blog Slide -->
-
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-        <div class="text-center mt-4">
-          <a href="blog.html" class="btn-view-all">View All Posts <i class="bi bi-arrow-right"></i></a>
-        </div>
-
-      </div>
-
-    </section><!-- /Blog Section -->
-
-    <!-- Services Section 
-    <section id="services" class="services section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div>
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
     </section>
-    /Services Section -->
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>anh Phúc Đỉnh vãi ò!!!</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Perject.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <a href="assets/img/testimonials/testimonials-1.jpg" class="glightbox" data-gallery="testimonials-gallery">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                </a>
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Perject.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <a href="assets/img/testimonials/testimonials-2.jpg" class="glightbox" data-gallery="testimonials-gallery">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                </a>
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Perject.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <a href="assets/img/testimonials/testimonials-3.jpg" class="glightbox" data-gallery="testimonials-gallery">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                </a>
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Perject.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <a href="assets/img/testimonials/testimonials-4.jpg" class="glightbox" data-gallery="testimonials-gallery">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                </a>
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Perject.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <a href="assets/img/testimonials/testimonials-5.jpg" class="glightbox" data-gallery="testimonials-gallery">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                </a>
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
+    <!-- Stats -->
+    <section class="stats">
+      <div class="wrap">
+        <div class="grid">
+          <div class="stat"><b>~<span data-count="5">5</span> yrs</b><span>Hands-on QA experience</span></div>
+          <div class="stat"><b><span data-count="40">40</span>%</b><span>Less manual regression effort via automation</span></div>
+          <div class="stat"><b><span data-count="4">4</span></b><span>Testing disciplines: manual, UI, API, performance</span></div>
+          <div class="stat"><b><span data-count="5">5</span></b><span>Technical articles on QA &amp; AI testing</span></div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Testimonials Section -->
+    <div class="marquee" aria-label="Tools and practices">
+      <div class="track"><span class="tool t-cypress">Cypress</span><span class="tool t-playwright">Playwright</span><span class="tool t-selenium">Selenium</span><span class="tool t-postman">Postman</span><span class="tool t-jmeter">JMeter</span><span class="tool t-swagger">Swagger</span><span class="tool t-jira">Jira</span><span class="tool t-confluence">Confluence</span><span class="tool t-claude">Claude</span><span class="tool t-speckit">Spec Kit</span><span class="tool t-playwright">Playwright MCP</span><span class="tool t-jira">Atlassian MCP</span><span>Scrum</span><span>Exploratory Testing</span><span>Regression</span><span>API Testing</span><span class="tool t-cypress">Cypress</span><span class="tool t-playwright">Playwright</span><span class="tool t-selenium">Selenium</span><span class="tool t-postman">Postman</span><span class="tool t-jmeter">JMeter</span><span class="tool t-swagger">Swagger</span><span class="tool t-jira">Jira</span><span class="tool t-confluence">Confluence</span><span class="tool t-claude">Claude</span><span class="tool t-speckit">Spec Kit</span><span class="tool t-playwright">Playwright MCP</span><span class="tool t-jira">Atlassian MCP</span><span>Scrum</span><span>Exploratory Testing</span><span>Regression</span><span>API Testing</span></div>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <!-- About -->
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="reveal">
+          <p class="eyebrow">About</p>
+          <h2 class="title">Quality is a team habit, not a final phase.</h2>
+          <p>I'm a Junior QC Engineer at Infodation, working on complex multi-platform products. I design test strategies, write detailed test cases, automate critical business flows and mentor junior testers.</p>
+          <p>Lately I focus on <strong>AI-assisted testing</strong>: using Playwright MCP, custom agents and Atlassian MCP to speed up exploratory testing, script generation and test case design, while keeping a human in the loop for judgement.</p>
+          <p>Outside work I play football and badminton, which keep me sharp on teamwork and quick decisions.</p>
+        </div>
+        <ul class="facts reveal">
+          <li><span>Role</span><span>Junior QC Engineer</span></li>
+          <li><span>Company</span><span>Infodation</span></li>
+          <li><span>Location</span><span>Nha Trang, Vietnam (UTC+7)</span></li>
+          <li><span>Education</span><span>B.Sc. Information Technology, Nha Trang University</span></li>
+          <li><span>Languages</span><span>Vietnamese (native), English (professional)</span></li>
+          <li><span>Availability</span><span>Open to remote roles</span></li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Phuc Tan Dinh</p>
-      </div><!-- End Section Title -->
+    <!-- Expertise -->
+    <section id="expertise" class="alt">
+      <div class="wrap">
+        <p class="eyebrow">Expertise</p>
+        <h2 class="title">What I bring to a team</h2>
+        <p class="lead">A full-stack QA toolkit, from requirement analysis to automated regression and AI-powered workflows.</p>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-clipboard-check"></i></div>
+            <h3>Manual &amp; Exploratory Testing</h3>
+            <p>Test planning, estimation, test design (EP, BVA, decision tables), functional, UAT and exploratory testing.</p>
+            <ul class="chips"><li>Test Design</li><li>UAT</li><li>Exploratory</li><li class="tool t-jira">Jira</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-robot"></i></div>
+            <h3>UI Test Automation</h3>
+            <p>Maintainable E2E suites for key business flows that cut manual regression time.</p>
+            <ul class="chips"><li class="tool t-playwright">Playwright</li><li class="tool t-cypress">Cypress</li><li class="tool t-selenium">Selenium</li><li class="tool t-junit">JUnit</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-diagram-3"></i></div>
+            <h3>API &amp; Performance Testing</h3>
+            <p>REST API validation with collection runs and environment management; load testing for critical endpoints.</p>
+            <ul class="chips"><li class="tool t-postman">Postman</li><li class="tool t-swagger">Swagger</li><li class="tool t-jmeter">JMeter</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-stars"></i></div>
+            <h3>AI-Assisted Testing</h3>
+            <p>Using MCP servers and custom agents to generate test cases, explore applications and self-heal scripts.</p>
+            <ul class="chips"><li class="tool t-playwright">Playwright MCP</li><li class="tool t-jira">Atlassian MCP</li><li>Custom Agents</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-people"></i></div>
+            <h3>Leadership &amp; Mentoring</h3>
+            <p>Peer reviews and guidance for junior QC members to keep deliverables consistent and high quality.</p>
+            <ul class="chips"><li>Code &amp; Test Review</li><li>Onboarding</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-chat-square-text"></i></div>
+            <h3>Collaboration</h3>
+            <p>Close work with developers, POs and clients; clear bug reports and honest quality status.</p>
+            <ul class="chips"><li>Agile / Scrum</li><li>Bug Reporting</li><li>Analytical Thinking</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <!-- Work & Experience -->
+    <section id="work">
+      <div class="wrap">
+        <p class="eyebrow">Work &amp; Experience</p>
+        <h2 class="title">Where I've worked</h2>
+        <p class="lead">The products and teams I've helped ship, grouped by company. Currently at Infodation, working on 3 projects in parallel.</p>
 
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>VCN tower NhaTrang, Khanh Hoa, Vietnam</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Us</h3>
-                  <p>+84 34 797 0454</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Us</h3>
-                  <p>dinhtanphuc47@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <iframe src="https://maps.google.com/maps?q=12.241596,109.1774061&hl=en&z=16&output=embed" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="employer reveal">
+          <div class="emp-head">
+            <div class="emp-logo" aria-hidden="true">I</div>
+            <div class="emp-main">
+              <h3>Infodation <span class="pill st-active">Current employer</span></h3>
+              <p class="role">Junior QC Engineer · Feb 2022 – Present · <span data-since="2022-02">4 yrs 8 mos</span></p>
+              <p class="sub">Nha Trang, Vietnam · Software &amp; AI solutions for international clients</p>
             </div>
+            <ul class="emp-stats">
+              <li><b>6</b><span>projects &amp; teams</span></li>
+              <li><b>2</b><span>European client markets</span></li>
+              <li><b>3</b><span>active right now</span></li>
+            </ul>
           </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
+          <ol class="timeline">
+          <li class="reveal now">
+            <div class="meta"><span class="when">Oct 2026 – Present</span><span class="pill st-active">Active</span></div>
+            <h3>QC · AI drawing-processing solution</h3>
+            <div class="org">AI tool that scans and processes engineering drawings for a client</div>
+            <ul>
+              <li>Responsible for the tool's effectiveness: does the AI output genuinely save the client's team time?</li>
+              <li>Evaluates accuracy and usefulness of AI output, not just functional correctness.</li>
+            </ul>
+            <ul class="chips"><li>AI Quality</li><li>Effectiveness Testing</li></ul>
+          </li>
+          <li class="reveal">
+            <div class="meta"><span class="when">Aug – Oct 2026</span></div>
+            <h3>QC · IDEA team (Infodation Enterprise Application)</h3>
+            <div class="org">Internal tools for company staff, built 100% with AI</div>
+            <ul>
+              <li>Worked in an AI-first delivery flow: apps created with Claude and Spec Kit.</li>
+              <li>Tested with AI assistance and built Playwright automation for the new apps.</li>
+            </ul>
+            <ul class="chips"><li class="tool t-claude">Claude</li><li class="tool t-speckit">Spec Kit</li><li class="tool t-playwright">Playwright</li></ul>
+          </li>
+          <li class="reveal">
+            <div class="meta"><span class="when">Apr 2025 – Jul 2026</span></div>
+            <h3>QC · AT Crew (automation enablement)</h3>
+            <div class="org">3 QC members and a management lead</div>
+            <p class="desc">Formed when the company began rolling out automation testing across all teams.</p>
+            <ul>
+              <li>Guided and onboarded teams, and resolved the practical obstacles of applying automation.</li>
+              <li>Jul – Sep 2025: embedded with the GRIDSZ Data team to support Cypress automation while they struggled to adopt it.</li>
+            </ul>
+            <ul class="chips"><li>Automation Strategy</li><li>Coaching</li><li class="tool t-cypress">Cypress</li></ul>
+          </li>
+          <li class="reveal now">
+            <div class="meta"><span class="when">Oct 2023 – Present</span><span class="pill st-active">Active</span></div>
+            <h3>QC · Belgian internet-connection management platform</h3>
+            <div class="org">Team of 2 DEV + 1 QC · Belgium</div>
+            <p class="desc">Platform that manages and tracks the rollout of internet connections to households.</p>
+            <ul>
+              <li>Same scope as the Dutch platform with a much smaller team: owns testing end to end and sprint demos for the client.</li>
+            </ul>
+            <ul class="chips"><li>Manual</li><li>Sprint Demo</li><li>Small-team QA</li></ul>
+          </li>
+          <li class="reveal now">
+            <div class="meta"><span class="when">Feb 2022 – Present</span><span class="pill st-maint">Maintenance</span></div>
+            <h3>QC · Dutch internet-connection management platform</h3>
+            <div class="org">Team scaled from 10 DEV + 3 QC down to 2 DEV + 1 QC · Netherlands</div>
+            <p class="desc">Platform that manages and tracks the rollout of internet connections to households.</p>
+            <ul>
+              <li>Test planning, test case design and execution for every sprint; demo to the client every 2 weeks.</li>
+              <li>Stayed through the product's growth into its maintenance phase, keeping releases stable with a shrinking team.</li>
+            </ul>
+            <ul class="chips"><li>Manual</li><li>Regression</li><li>Sprint Demo</li><li>Scrum</li></ul>
+          </li>
+        </ol>
         </div>
 
-      </div>
+        <!--
+          NEXT COMPANY (copy this block above or below the Infodation one, newest first):
+          <div class="employer reveal">
+            <div class="emp-head">
+              <div class="emp-logo" aria-hidden="true">C</div>
+              <div class="emp-main">
+                <h3>Company name</h3>
+                <p class="role">Role · Mon YYYY – Mon YYYY</p>
+                <p class="sub">City, Country · one line about the company</p>
+              </div>
+              <ul class="emp-stats"><li><b>N</b><span>projects</span></li></ul>
+            </div>
+            <ol class="timeline"> ...same <li> items as the Infodation timeline... </ol>
+          </div>
+        -->
 
-    </section><!-- /Contact Section -->
+        <h3 class="subtitle-xp">Core responsibilities across projects</h3>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-clipboard-data"></i></div>
+            <h3>Test strategy &amp; planning</h3>
+            <p>Test plans, timeline estimates and detailed test cases for complex multi-platform features.</p>
+          </article>
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-plug"></i></div>
+            <h3>API testing</h3>
+            <p>RESTful APIs with Postman, JMeter and Swagger, including automated collection runs and environment variable management.</p>
+          </article>
+          <article class="card reveal">
+            <div class="ico"><i class="bi bi-lightning-charge"></i></div>
+            <h3>Automation &amp; mentoring</h3>
+            <p>Cypress/Playwright regression that cut manual testing time by 40%, plus reviews and guidance for junior QC members.</p>
+          </article>
+        </div>
+
+        <h3 class="subtitle-xp">Education</h3>
+        <ol class="timeline">
+          <li class="reveal">
+            <div class="meta"><span class="when">2017 – 2021</span></div>
+            <h3>B.Sc. in Information Technology</h3>
+            <div class="org">Nha Trang University · Khanh Hoa, Vietnam</div>
+          </li>
+        </ol>
+
+        <p class="more-link">Want the deeper dives? Read my <a href="blog.html">articles on AI-assisted testing and automation</a>.</p>
+      </div>
+    </section>
+
+    <!-- QA samples -->
+    <section id="samples" class="alt">
+      <div class="wrap">
+        <p class="eyebrow">QA samples</p>
+        <h2 class="title">How I document quality</h2>
+        <p class="lead">Illustrative examples of the artifacts I write. Real project artifacts are confidential, so these use a fictional login and checkout feature.</p>
+
+        <div class="tabs" role="tablist" aria-label="QA sample artifacts">
+          <button class="on" role="tab" data-tab="tc">Test cases</button>
+          <button role="tab" data-tab="bug">Bug report</button>
+          <button role="tab" data-tab="plan">Test approach</button>
+        </div>
+
+        <div class="tab-panel on reveal" data-panel="tc">
+          <div class="table-wrap">
+            <table class="qa-table">
+              <thead><tr><th>ID</th><th>Title</th><th>Technique</th><th>Steps</th><th>Expected result</th><th>Priority</th></tr></thead>
+              <tbody>
+                <tr><td>TC-LOGIN-001</td><td>Login with valid credentials</td><td><span class="tech">EP · valid</span></td><td>1. Open /login<br>2. Enter a registered email and valid password<br>3. Click Sign in</td><td>User lands on the dashboard and a session is created</td><td><span class="prio high">High</span></td></tr>
+                <tr><td>TC-LOGIN-002</td><td>Password at the minimum length (8)</td><td><span class="tech">BVA · boundary</span></td><td>1. Sign in with an account whose password has exactly 8 characters</td><td>Login succeeds</td><td><span class="prio med">Medium</span></td></tr>
+                <tr><td>TC-LOGIN-003</td><td>Set a password one below the minimum (7)</td><td><span class="tech">BVA · boundary</span></td><td>1. Open Change password<br>2. Enter a 7-character password<br>3. Submit</td><td>Validation message: "Password must be at least 8 characters"</td><td><span class="prio med">Medium</span></td></tr>
+                <tr><td>TC-LOGIN-004</td><td>Invalid email format</td><td><span class="tech">EP · invalid</span></td><td>1. Enter "user@" as the email<br>2. Click Sign in</td><td>Inline error is shown and no request is sent</td><td><span class="prio med">Medium</span></td></tr>
+                <tr><td>TC-LOGIN-005</td><td>Account lock after 5 failed attempts</td><td><span class="tech">Decision table</span></td><td>1. Enter a wrong password 5 times<br>2. Enter the correct password</td><td>Account is locked for 15 minutes, a message is shown and the correct password is rejected during the lock</td><td><span class="prio high">High</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">EP = equivalence partitioning, BVA = boundary value analysis.</p>
+        </div>
+
+        <div class="tab-panel reveal" data-panel="bug">
+          <article class="bug">
+            <div class="bug-top">
+              <span class="bug-id">BUG-101</span>
+              <span class="prio high">Severity: Major</span>
+              <span class="prio med">Priority: High</span>
+              <span class="pill st-active">Open</span>
+            </div>
+            <h3>Order total is not recalculated after removing a promo code at checkout</h3>
+            <dl class="bug-meta">
+              <div><dt>Environment</dt><dd>Staging · Chrome 130 · Windows 11</dd></div>
+              <div><dt>Build</dt><dd>2.14.0-rc2</dd></div>
+              <div><dt>Found in</dt><dd>Sprint 14 regression</dd></div>
+            </dl>
+            <h4>Steps to reproduce</h4>
+            <ol>
+              <li>Add any product to the cart and open checkout.</li>
+              <li>Apply promo code <code>SPRING10</code>; the total drops by 10%.</li>
+              <li>Click Remove next to the promo code.</li>
+            </ol>
+            <div class="bug-cols">
+              <div><h4>Expected</h4><p>The promo line disappears and the total returns to the original amount.</p></div>
+              <div><h4>Actual</h4><p>The promo line disappears but the total keeps the discounted amount until the page is reloaded.</p></div>
+            </div>
+            <p class="note">Attachments: screen recording, network log (HAR). Suspected cause: totals are only recalculated on apply, not on remove.</p>
+          </article>
+        </div>
+
+        <div class="tab-panel reveal" data-panel="plan">
+          <div class="plan-grid">
+            <div class="plan-item"><b>Scope</b><p>Features in and out of scope, supported browsers and devices, integrations.</p></div>
+            <div class="plan-item"><b>Risks</b><p>Product risks ranked by impact and likelihood to decide where to test deepest.</p></div>
+            <div class="plan-item"><b>Approach</b><p>Manual and exploratory sessions, API checks, and which flows are automated for regression.</p></div>
+            <div class="plan-item"><b>Environments &amp; data</b><p>Test environments, accounts, seed data and third-party sandboxes.</p></div>
+            <div class="plan-item"><b>Entry &amp; exit criteria</b><p>What must be ready to start testing and what "done" means for the release.</p></div>
+            <div class="plan-item"><b>Reporting</b><p>Daily defect status, regression results and a clear release-readiness summary.</p></div>
+          </div>
+        </div>
+
+        <!-- Replace the sample content above with your own (anonymised) test cases, bug report and plan outline. -->
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="alt">
+      <div class="wrap">
+        <p class="eyebrow">How I work</p>
+        <h2 class="title">A repeatable quality process</h2>
+        <p class="lead">Consistent steps, adapted to each team's size and delivery cadence.</p>
+        <div class="steps">
+          <div class="step reveal"><h3>Analyse</h3><p>Review requirements, flag ambiguity and risks early.</p></div>
+          <div class="step reveal"><h3>Plan</h3><p>Test strategy, scope and estimation.</p></div>
+          <div class="step reveal"><h3>Design</h3><p>Traceable test cases with EP, BVA and decision tables.</p></div>
+          <div class="step reveal"><h3>Execute &amp; Automate</h3><p>Manual, exploratory and automated runs.</p></div>
+          <div class="step reveal"><h3>Report</h3><p>Clear defects and honest release-readiness status.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section id="writing" class="alt">
+      <div class="wrap">
+        <p class="eyebrow">Writing</p>
+        <h2 class="title">Technical articles</h2>
+        <p class="lead">Practical notes on test automation and AI-assisted QA.</p>
+        <div class="banner reveal" role="region" aria-roledescription="carousel" aria-label="Featured articles">
+          <div class="banner-track">
+            <article class="slide">
+              <div class="slide-copy">
+                <small>AI Testing · Dec 2025</small>
+                <h3>Exploratory Testing with Playwright MCP</h3>
+                <a class="btn btn-primary" href="exploration-testing-with-playwright-mcp.html">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <a class="slide-img" href="exploration-testing-with-playwright-mcp.html" tabindex="-1" aria-hidden="true"><span class="slide-bg" style="background-image:url('assets/img/Blog/what-exploratory-testing.jpg')"></span><img src="assets/img/Blog/what-exploratory-testing.jpg" alt="" loading="lazy"></a>
+            </article>
+            <article class="slide">
+              <div class="slide-copy">
+                <small>Quality Solutions · Apr 2026</small>
+                <h3>Custom Agent: Automated Component, Page &amp; Test Case Generation via Atlassian MCP</h3>
+                <a class="btn btn-primary" href="custom-agent-automated-component-page-test-case-generation-via-atlassian-mcp.html">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <a class="slide-img" href="custom-agent-automated-component-page-test-case-generation-via-atlassian-mcp.html" tabindex="-1" aria-hidden="true"><span class="slide-bg" style="background-image:url('assets/img/Blog/ai-power-MCP-server.jpg')"></span><img src="assets/img/Blog/ai-power-MCP-server.jpg" alt="" loading="lazy"></a>
+            </article>
+            <article class="slide">
+              <div class="slide-copy">
+                <small>Automation · Apr 2026</small>
+                <h3>How to Get an Effective Element in Automated Testing with Cypress (C# Projects)</h3>
+                <a class="btn btn-primary" href="how-to-get-an-effective-element-in-automated-testing-with-cypress-csharp-projects.html">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <a class="slide-img" href="how-to-get-an-effective-element-in-automated-testing-with-cypress-csharp-projects.html" tabindex="-1" aria-hidden="true"><span class="slide-bg" style="background-image:url('assets/img/Blog/app-2.jpg')"></span><img src="assets/img/Blog/app-2.jpg" alt="" loading="lazy"></a>
+            </article>
+            <article class="slide">
+              <div class="slide-copy">
+                <small>Automation · Dec 2025</small>
+                <h3>How to Integrate Playwright MCP for AI-Driven Test Automation</h3>
+                <a class="btn btn-primary" href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <a class="slide-img" href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html" tabindex="-1" aria-hidden="true"><span class="slide-bg" style="background-image:url('assets/img/Blog/app-1.jpg')"></span><img src="assets/img/Blog/app-1.jpg" alt="" loading="lazy"></a>
+            </article>
+            <article class="slide">
+              <div class="slide-copy">
+                <small>Quality Solutions · Nov 2025</small>
+                <h3>Self-Healing in Automation Testing</h3>
+                <a class="btn btn-primary" href="self-healing-in-test-automation.html">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <a class="slide-img" href="self-healing-in-test-automation.html" tabindex="-1" aria-hidden="true"><span class="slide-bg" style="background-image:url('assets/img/Blog/self-healing-logo-3.jpg')"></span><img src="assets/img/Blog/self-healing-logo-3.jpg" alt="" loading="lazy"></a>
+            </article>
+          </div>
+          <div class="banner-ctrl">
+            <button class="banner-arrow prev" type="button" aria-label="Previous article"><i class="bi bi-arrow-left"></i></button>
+            <button class="banner-arrow next" type="button" aria-label="Next article"><i class="bi bi-arrow-right"></i></button>
+            <div class="banner-dots" role="tablist"></div>
+          </div>
+          <div class="banner-bar"><span></span></div>
+        </div>
+        <h3 class="subhead">Beyond testing</h3>
+        <div class="banner photo reveal" role="region" aria-roledescription="carousel" aria-label="Life outside work">
+          <div class="banner-track">
+            <article class="slide">
+              <div class="slide-copy">
+                <small>Life · Aug 2025</small>
+                <h3>VnExpress Marathon Nha Trang 2025</h3>
+                <span class="soon">Story coming soon</span>
+              </div>
+              <div class="slide-img"><span class="slide-bg" style="background-image:url('assets/img/Blog/infodation-run/infodation-run-1.jpg')"></span><img src="assets/img/Blog/infodation-run/infodation-run-1.jpg" alt="" loading="lazy"></div>
+            </article>
+            <article class="slide">
+              <div class="slide-copy">
+                <small>Life · Dec 2025</small>
+                <h3>Small Liquor Store Owner</h3>
+                <span class="soon">Story coming soon</span>
+              </div>
+              <div class="slide-img"><span class="slide-bg" style="background-image:url('assets/img/Blog/branding-1.jpg')"></span><img src="assets/img/Blog/branding-1.jpg" alt="" loading="lazy"></div>
+            </article>
+          </div>
+          <div class="banner-ctrl">
+            <button class="banner-arrow prev" type="button" aria-label="Previous story"><i class="bi bi-arrow-left"></i></button>
+            <button class="banner-arrow next" type="button" aria-label="Next story"><i class="bi bi-arrow-right"></i></button>
+            <div class="banner-dots" role="tablist"></div>
+          </div>
+          <div class="banner-bar"><span></span></div>
+        </div>
+        <p style="margin-top:28px"><a class="btn btn-primary" href="blog.html">All articles <i class="bi bi-arrow-right"></i></a></p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box reveal">
+          <div class="contact-grid">
+            <div class="contact-copy">
+          <h2>Let's build quality together</h2>
+          <p>Hiring for a QA / QC role or need help with test automation? I'd be glad to talk.</p>
+          <div class="btns">
+            <a class="btn btn-primary" href="mailto:dinhtanphuc47@gmail.com?subject=Opportunity%20for%20Phuc%20Tan%20Dinh"><i class="bi bi-envelope"></i> dinhtanphuc47@gmail.com</a>
+            <!-- Add when ready: <a class="btn btn-ghost" href="https://www.linkedin.com/in/YOUR-ID"><i class="bi bi-linkedin"></i> LinkedIn</a> -->
+            <a class="btn btn-ghost" href="assets/Phuc-Tan-Dinh-CV.pdf" download="Phuc-Tan-Dinh-CV.pdf"><i class="bi bi-download"></i> Download CV</a>
+          </div>
+          <div class="social contact-social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+            </div>
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqppdzky" method="POST" novalidate>
+              <label>Name<input type="text" name="name" autocomplete="name" required></label>
+              <label>Email<input type="email" name="email" autocomplete="email" required></label>
+              <label>Message<textarea name="message" rows="4" required></textarea></label>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+              <button class="btn btn-primary" type="submit"><i class="bi bi-send"></i> Send message</button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <footer id="footer" class="footer position-relative light-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iBlog</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-        Designed by <a href="https://www.facebook.com/phuc.boo.99/">PhucBoo</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
-      </div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="social foot-social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+      <div>© 2026 Phuc Tan Dinh · QC Engineer · Nha Trang, Vietnam</div>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <button id="toTop" class="to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <script src="assets/js/portfolio.js?v=20261102"></script>
+  <script src="assets/js/i18n.js?v=20261102"></script>
 </body>
 
 </html>

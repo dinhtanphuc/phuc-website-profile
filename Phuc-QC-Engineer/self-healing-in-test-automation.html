@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script>try{var q=new URLSearchParams(location.search).get('theme'),t=q||localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Self-Healing in Automation Testing</title>
@@ -26,6 +27,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/shell.css?v=20261102" rel="stylesheet">
+  <link href="assets/css/articles.css?v=20261102" rel="stylesheet">
 
   <!-- Google Fonts for handwriting style -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,53 +44,35 @@
 
 <body class="blog-details-page">
 
-  <header id="header" class="header dark-background d-flex flex-row">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+  <header class="site-nav">
+    <div class="topbar">
+      <div class="wrap">
+        <span class="status-line"><i></i> Open to remote &amp; international opportunities</span>
+        <span class="loc"><i class="bi bi-geo-alt"></i> Nha Trang, Vietnam · UTC+7</span>
+        <span class="topbar-right">
+          <a class="mail" href="mailto:dinhtanphuc47@gmail.com"><i class="bi bi-envelope"></i> dinhtanphuc47@gmail.com</a>
+          <span class="social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></span>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+        </span>
+      </div>
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Phuc Tan Dinh</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    <div class="mainbar">
+      <div class="wrap">
+        <a class="brand" href="index.htmlindex.html">
+          <img src="assets/img/my-profile-img.jpg" alt="" width="40" height="40">
+          <span><b>Phuc Tan Dinh<em>.</em></b><small>QC Engineer</small></span>
+        </a>
+        <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" id="menuBtn"><i class="bi bi-list"></i></button>
+        <ul id="menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#work">Work &amp; Experience</a></li>
+          <li><a href="index.html#samples">Samples</a></li>
+          <li><a href="blog.html" class="current">Writing</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
     </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="index.html#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
-        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="blog.html"><i class="bi bi-images navicon"></i> Blog</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li>
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-
   </header>
 
   <main class="main">
@@ -295,31 +280,16 @@
 
   </main>
 
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <h3 class="sitename">Phuc Tan Dinh</h3>
-      <p>Et aut eum quas repudiandae sint. Voluptates nesciunt nihil explicabo et. Optio quo molestias similique in omnis.</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-facebook icon-blog-footer-1"></i></a>
-        <a href=""><i class="bi bi-instagram icon-blog-footer-1"></i></a>
-        <a href=""><i class="bi bi-skype icon-blog-footer-1"></i></a>
-        <a href=""><i class="bi bi-linkedin icon-blog-footer-1"></i></a>
-      </div>
-      <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">PhucBoo</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-        Designed by <a href="https://www.facebook.com/phuc.boo.99/">PhucBoo</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
-      </div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="social foot-social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+      <div>© 2026 Phuc Tan Dinh · QC Engineer · Nha Trang, Vietnam</div>
     </div>
   </footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -336,6 +306,17 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    (function () {
+      var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    })();
+  </script>
+  <script src="assets/js/theme.js?v=20261102"></script>
 </body>
 
 </html>

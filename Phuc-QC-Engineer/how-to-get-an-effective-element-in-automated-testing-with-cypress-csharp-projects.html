@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>try{var q=new URLSearchParams(location.search).get('theme'),t=q||localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>How to Get an Effective Element in Automated Testing with Cypress (Projects Using C#)</title>
+  <meta content="A practical guide to choosing stable Cypress selectors, avoiding dynamic locators, and organizing elements for maintainable automated testing in projects that use C# on the application side." name="description">
+  <meta content="Cypress, selectors, automated testing, C# projects, Page Object Model, data-cy, locator strategy" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/shell.css?v=20261102" rel="stylesheet">
+  <link href="assets/css/articles.css?v=20261102" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="blog-details-page">
+
+  <header class="site-nav">
+    <div class="topbar">
+      <div class="wrap">
+        <span class="status-line"><i></i> Open to remote &amp; international opportunities</span>
+        <span class="loc"><i class="bi bi-geo-alt"></i> Nha Trang, Vietnam · UTC+7</span>
+        <span class="topbar-right">
+          <a class="mail" href="mailto:dinhtanphuc47@gmail.com"><i class="bi bi-envelope"></i> dinhtanphuc47@gmail.com</a>
+          <span class="social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></span>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+        </span>
+      </div>
+    </div>
+    <div class="mainbar">
+      <div class="wrap">
+        <a class="brand" href="index.htmlindex.html">
+          <img src="assets/img/my-profile-img.jpg" alt="" width="40" height="40">
+          <span><b>Phuc Tan Dinh<em>.</em></b><small>QC Engineer</small></span>
+        </a>
+        <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" id="menuBtn"><i class="bi bi-list"></i></button>
+        <ul id="menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#work">Work &amp; Experience</a></li>
+          <li><a href="index.html#samples">Samples</a></li>
+          <li><a href="blog.html" class="current">Writing</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section id="blog-details" class="blog-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="blog-detail-layout">
+
+          <aside class="blog-toc-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="blog-toc-list">
+              <li class="active">
+                <a href="#section-1">1. Overview</a>
+              </li>
+              <li>
+                <a href="#section-2">2. How It Works</a>
+              </li>
+              <li>
+                <a href="#section-3">3. Prioritize Stable Selectors</a>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-3-1">3.1 data-* attributes</a></li>
+                  <li><a href="#section-3-2">3.2 Static IDs</a></li>
+                  <li><a href="#section-3-3">3.3 Dynamic IDs</a></li>
+                  <li><a href="#section-3-4">3.4 name and formControlName</a></li>
+                  <li><a href="#section-3-5">3.5 placeholder and aria-* attributes</a></li>
+                  <li><a href="#section-3-6">3.6 cy.contains()</a></li>
+                  <li><a href="#section-3-7">3.7 CSS selectors</a></li>
+                  <li><a href="#section-3-8">3.8 XPath and positional selectors</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#section-4">4. DOM Traversal in Cypress</a>
+              </li>
+              <li>
+                <a href="#section-5">5. Managing Selectors in Large Projects</a>
+              </li>
+              <li>
+                <a href="#section-6">6. Conclusion</a>
+              </li>
+            </ul>
+
+            <div class="blog-project-info" style="margin-top: 30px;">
+              <h3>Project information</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Category:</strong> Automation Testing</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Author:</strong> Phuc Tan Dinh</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Published:</strong> April 9, 2026</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Reading time:</strong> 11 min</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="blog-content-area">
+            <div class="blog-header-image">
+              <a href="assets/img/Blog/app-2.jpg" class="glightbox" data-gallery="blog-detail-gallery">
+                <img src="assets/img/Blog/app-2.jpg" alt="Effective Cypress element strategy for C# projects">
+              </a>
+            </div>
+
+            <div class="blog-content-section" id="section-1">
+              <h2>1. Overview</h2>
+              <p>
+                In automated testing, accurately identifying UI elements is a core part of building stable and maintainable test cases.
+                This guide provides detailed guidelines on how to capture elements effectively, including common locator analysis,
+                practical selector selection rules, and maintainable ways to organize selectors in large projects.
+              </p>
+              <p>
+                The goal is to improve reliability and maintainability across frameworks such as Selenium WebDriver, Cypress, or Playwright.
+                In this article, the examples use Cypress, with special attention to projects where the application itself uses C# on the backend or server-rendered UI side.
+              </p>
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #0078d4;">
+                <p style="margin-bottom: 10px;"><strong>Important context:</strong> even in projects built with ASP.NET, Razor, Blazor, or other C# stacks, Cypress tests are still written in JavaScript or TypeScript.</p>
+                <p style="margin-bottom: 0;">What changes is the DOM you receive from that application, along with the kinds of dynamic IDs, form attributes, and rendering patterns that your selectors need to handle well.</p>
+              </div>
+              <p>
+                By following these practices, teams can define a consistent locator strategy, choose stable selectors, organize locators with maintainable patterns such as the Page Object Model, and avoid common pitfalls in dynamic or complex DOM structures.
+              </p>
+            </div>
+
+            <div class="blog-content-section" id="section-2">
+              <h2>2. How It Works</h2>
+              <p>
+                Cypress officially recommends selecting elements in ways that reflect stable intent rather than styling or DOM position.
+                The best starting point is the Cypress best practices guide:
+                <a href="https://docs.cypress.io/app/core-concepts/best-practices" target="_blank" rel="noopener noreferrer">Best Practices - Selecting Elements</a>.
+              </p>
+              <p>
+                Consider this button that we want to interact with:
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>&lt;button
+  id="main"
+  class="btn btn-large"
+  name="submission"
+  role="button"
+  data-cy="submit"
+&gt;
+  Submit
+&lt;/button&gt;</code></pre>
+              <p>
+                Several locator options are available, but they are not equally stable. The rest of this guide shows how to prioritize selectors from most durable to most fragile.
+              </p>
+            </div>
+
+            <div class="blog-content-section" id="section-3">
+              <h2>3. Prioritize Stable and Semantic Selectors</h2>
+
+              <h3 id="section-3-1">3.1 Using data-* Attributes: the Gold Standard</h3>
+              <p>
+                Introduce dedicated attributes such as <code>data-cy</code>, <code>data-testid</code>, or <code>data-qa</code> specifically for testing.
+                These are usually the most stable option because they are not tied to styling, layout, or displayed copy.
+              </p>
+              <ul style="line-height: 2;">
+                <li><strong>Stability:</strong> less likely to change because of CSS or UI refactoring</li>
+                <li><strong>Clarity:</strong> makes test intent obvious to anyone reading the DOM</li>
+                <li><strong>Team collaboration:</strong> frontend and C# developers can preserve these attributes as part of the test contract</li>
+              </ul>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>&lt;button data-cy="submit"&gt;Submit&lt;/button&gt;
+
+cy.get('[data-cy="submit"]').click();</code></pre>
+
+              <h3 id="section-3-2">3.2 Use Unique and Static IDs</h3>
+              <p>
+                If an element has an ID that is unique and stable across the entire DOM, it is a strong selector choice.
+                Cypress can query IDs efficiently and the intent stays clear.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>&lt;button id="mainSubmit"&gt;Submit&lt;/button&gt;
+&lt;input type="text" id="emailInput" placeholder="Enter email"&gt;
+
+it('Interact with elements by ID', () =&gt; {
+  cy.visit('/page.html');
+  cy.get('#mainSubmit').click();
+  cy.get('#emailInput').type('test@example.com');
+});</code></pre>
+              <p>
+                This works well when the ID is intentionally designed, not framework-generated.
+              </p>
+
+              <h3 id="section-3-3">3.3 Avoid Dynamic IDs</h3>
+              <p>
+                Dynamic IDs are generated values that change across page loads, sessions, environments, or builds. They are common in older ASP.NET Web Forms pages and in modern component libraries.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>&lt;input id="ctl00_MainContent_txtEmail" /&gt;
+&lt;div id="react-select-12-option-3"&gt;&lt;/div&gt;
+
+cy.get('#ctl00_MainContent_btnSubmit').click();
+cy.get('#react-select-12-option-3').click();</code></pre>
+              <div style="background: #fff3cd; padding: 18px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 18px 0;">
+                <p style="margin: 0;"><strong>Why this is risky:</strong> dynamic IDs create tests that pass today and fail after the next render, deployment, or library upgrade.</p>
+              </div>
+
+              <h3 id="section-3-4">3.4 Use name or formControlName for Form Elements</h3>
+              <p>
+                In forms, <code>name</code> and Angular's <code>formControlName</code> often reflect data binding rather than presentation.
+                That makes them useful in applications where a C# backend depends on predictable form field names.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>&lt;input type="email" name="userEmail" placeholder="Enter your email"&gt;
+
+it('Types email using the name attribute', () =&gt; {
+  cy.visit('/page.html');
+  cy.get('[name="userEmail"]').type('test@example.com');
+});</code></pre>
+
+              <h3 id="section-3-5">3.5 Use placeholder, aria-label, or title Only When Necessary</h3>
+              <p>
+                These attributes can be useful when no better selector is available. They carry semantic meaning and help accessibility, but they should usually be considered fallback selectors rather than the first choice.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>&lt;input type="text" placeholder="Search"&gt;
+
+it('Types into the search input using the placeholder', () =&gt; {
+  cy.visit('/page.html');
+  cy.get('[placeholder="Search"]').type('keyword');
+});</code></pre>
+              <p>
+                These are still preferable to brittle positional selectors, but they can change when content or accessibility wording changes.
+              </p>
+
+              <h3 id="section-3-6">3.6 Use Content-Based Selectors with cy.contains()</h3>
+              <p>
+                <code>cy.contains()</code> is useful when text itself is the user-facing contract. It is much better than inventing a complex CSS chain just to locate a button with stable visible text.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>cy.contains('Submit').click();
+cy.contains('button', 'Cancel').click();
+cy.contains('div.error', 'Invalid username or password').should('be.visible');</code></pre>
+              <p>
+                Prefer the variant with both selector and text when you want to reduce ambiguity.
+              </p>
+
+              <h3 id="section-3-7">3.7 Use CSS Class Selectors Carefully</h3>
+              <p>
+                If a single semantic class is not enough, combine stable classes or scope within a stable parent container.
+                The point is to express structure without depending on fragile visual wrappers.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>&lt;button class="button primary"&gt;Submit&lt;/button&gt;
+&lt;div class="product-card"&gt;
+  &lt;div class="info"&gt;
+    &lt;h2 class="title"&gt;Product Name&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="mat-select-search-inner"&gt;
+  &lt;input
+    type="text"
+    class="mat-select-search-input"
+    placeholder="Search..."
+    aria-label="Search Country Code"
+  /&gt;
+&lt;/div&gt;
+
+cy.get('.button.primary');
+cy.get('.product-card .info .title');
+cy.get('.mat-select-search-inner &gt; .mat-select-search-input').type('NO');</code></pre>
+              <p>
+                Use this approach only when the classes are intentionally meaningful and likely to remain together.
+              </p>
+
+              <h3 id="section-3-8">3.8 XPath and Positional Selectors Should Be the Last Resort</h3>
+              <p>
+                XPath can express complex DOM traversal, but Cypress does not support it natively. You need an additional plugin to use it, and XPath expressions often become hard to read and expensive to maintain.
+              </p>
+              <p>
+                Similarly, selectors based on <code>:nth-child</code>, index positions, or deep DOM order tend to break whenever the UI layout changes.
+              </p>
+              <div style="background: #f8d7da; padding: 18px; border-radius: 8px; border-left: 4px solid #dc3545; margin: 18px 0;">
+                <p style="margin-bottom: 10px;"><strong>Use only when there is no cleaner contract.</strong></p>
+                <p style="margin: 0;">If you think XPath is required, first check whether a stable <code>data-*</code> attribute, form attribute, container scope, or <code>cy.contains()</code> can solve the problem more clearly.</p>
+              </div>
+            </div>
+
+            <div class="blog-content-section" id="section-4">
+              <h2>4. Master DOM Traversal in Cypress</h2>
+              <p>
+                Sometimes the best strategy is not a more complicated root selector, but better scoping from a stable parent.
+                Cypress gives you traversal helpers for that.
+              </p>
+
+              <h3>4.1 Parent and Children</h3>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>cy.get('.child-element').parent('.parent-container').should('exist');
+
+cy.get('.parent-element').children().should('have.length', 3);
+cy.get('.parent-element').children('.specific-child').should('be.visible');</code></pre>
+
+              <h3>4.2 Other Useful Traversal Commands</h3>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>cy.get('.main-container').find('.nested-element').click();
+
+cy.get('.form').within(() =&gt; {
+  cy.get('input[name="username"]').type('testuser');
+  cy.get('input[name="password"]').type('password');
+  cy.get('button[type="submit"]').click();
+});
+
+cy.get('.row-item').siblings().should('have.length.greaterThan', 0);
+cy.get('.current-step').next().should('be.visible');
+cy.get('.current-step').prev().should('be.visible');</code></pre>
+              <p>
+                The most maintainable version usually starts from one stable container and narrows the search within that boundary.
+              </p>
+            </div>
+
+            <div class="blog-content-section" id="section-5">
+              <h2>5. Managing Selectors in Large Projects</h2>
+
+              <h3>5.1 Use the Page Object Model</h3>
+              <p>
+                Encapsulate selectors and page actions into reusable objects. This keeps tests readable and isolates selector changes.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>class LoginPage {
+  elements = {
+    usernameInput: () =&gt; cy.get('[data-cy=username]'),
+    passwordInput: () =&gt; cy.get('[data-cy=password]'),
+    loginButton: () =&gt; cy.get('[data-cy=login-button]')
+  };
+
+  login(username, password) {
+    this.elements.usernameInput().type(username);
+    this.elements.passwordInput().type(password);
+    this.elements.loginButton().click();
+  }
+}
+
+export default new LoginPage();</code></pre>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>import loginPage from '../support/pages/LoginPage';
+
+describe('Login', () =&gt; {
+  it('should log in successfully', () =&gt; {
+    loginPage.login('admin', 'password123');
+  });
+});</code></pre>
+
+              <h3>5.2 Centralize Selectors with a Selectors File</h3>
+              <p>
+                If full page objects feel too heavy, a centralized selectors module still improves consistency and reduces duplication.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>export const NO_ODFSelectors = {
+  ODF_InputWP: '[formcontrolname="popWpId"]',
+  ODF_InputWP_option: '.mat-option-text',
+  ODF1_Cabinet: '[formcontrolname="odf1Cabinet"]',
+  ODF1_Tray: '[formcontrolname="odf1Tray"]',
+  ODF1_Position: '[formcontrolname="odf1Position"]',
+  ODF1_Damping: '[formcontrolname="odf1Damping"]',
+  ODF_Submit: 'Opslaan'
+};</code></pre>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>it('should show error when ODF1_Cabinet is not filled', () =&gt; {
+  cy.contains(NOSelectors.NOpage).click();
+  cy.url().should('include', '/aansluiting');
+  cy.get(NOSelectors.connectionDetailButton).click();
+  cy.get(NOSelectors.DOTicon).click();
+  cy.get(NOSelectors.DOTpopup).should('be.visible');
+  cy.contains(NOSelectors.ODFoption).click();
+  cy.get(NO_ODFSelectors.ODF1_Tray).type(ODF.Tray_1);
+  cy.get(NO_ODFSelectors.ODF1_Position).type(ODF.Position_1);
+  cy.contains(NO_ODFSelectors.ODF_Submit).click();
+  cy.contains('Technische ODF data is incompleet.').should('be.visible');
+});</code></pre>
+
+              <h3>5.3 Store Selectors in CSV and Generate Page Objects</h3>
+              <p>
+                For large teams, a CSV file can become a source of truth for selectors. Copilot can then help generate or update page objects from that list.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>Page,Element,Selector
+LoginPage,Username Input,#username
+LoginPage,Password Input,#txtPassword
+LoginPage,Login Button,[data-cy="login-button"]
+LoginPage,Error Message,.error-message</code></pre>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>class LoginPage {
+  visit() {
+    cy.visit('https://portal.fk-bs-staging.infodation.vn/');
+  }
+
+  login(username, password) {
+    cy.get('#username').type(username);
+    cy.get('#txtPassword').type(password);
+    cy.get('[data-cy="login-button"]').click();
+  }
+
+  getErrorMessage() {
+    return cy.get('.error-message');
+  }
+}
+
+export default LoginPage;</code></pre>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>import LoginPage from '../pages/LoginPage';
+
+describe('Login Tests', () =&gt; {
+  const loginPage = new LoginPage();
+
+  beforeEach(() =&gt; {
+    cy.viewport(1900, 920);
+    loginPage.visit();
+  });
+
+  it('should login successfully with valid credentials', () =&gt; {
+    cy.fixture('user').then((user) =&gt; {
+      loginPage.login(user.valid.username, user.valid.password);
+      cy.url().should('include', '/home?tab=Sales');
+    });
+  });
+});</code></pre>
+
+              <h3>5.4 Encapsulate Common Actions in Custom Commands</h3>
+              <p>
+                For repeated business actions such as logging in, custom commands reduce noise inside test cases.
+              </p>
+              <pre style="background: #f4f4f4; padding: 18px; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>Cypress.Commands.add('login', (username, password) =&gt; {
+  cy.get('[data-cy=username]').type(username);
+  cy.get('[data-cy=password]').type(password);
+  cy.get('[data-cy=login-button]').click();
+});</code></pre>
+            </div>
+
+            <div class="blog-content-section" id="section-6">
+              <h2>6. Conclusion: Selector Priority in Cypress</h2>
+              <p>
+                Choosing the right selector is critical for reliability, readability, and long-term maintainability. The following priority table is a practical summary from best to worst.
+              </p>
+              <div style="overflow-x: auto; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);">
+                  <thead>
+                    <tr style="background: #0078d4; color: white;">
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Priority</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Selector Type</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Stability</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Readability</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Maintainability</th>
+                      <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Main advantages</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">1</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>data-cy</code>, <code>data-testid</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Very high</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">High</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Very high</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Designed specifically for testing and minimally affected by UI styling changes</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">2</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Static <code>id</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">High</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">High</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">High</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Fast and unambiguous when the ID is intentionally stable</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">3</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>name</code>, <code>formControlName</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium high</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium high</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Useful for form workflows and often aligned with data binding</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">4</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>placeholder</code>, <code>aria-*</code>, <code>title</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Semantic fallback when stronger contracts are unavailable</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">5</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;"><code>cy.contains()</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Useful when visible text is the stable contract and ambiguity is controlled</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">6</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Dynamic <code>id</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Very low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Medium</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Looks precise, but breaks easily when frameworks regenerate values</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">7</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Class chains and <code>nth-child</code></td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Should be used only when classes are intentionally stable and no better contract exists</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; border: 1px solid #ddd;">8</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">XPath</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                      <td style="padding: 12px; border: 1px solid #ddd;">Powerful for complex traversal, but not native in Cypress and costly to maintain</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                The practical rule is simple: prefer selectors that describe business intent, not visual implementation details.
+                That single decision reduces flaky tests, lowers maintenance cost, and makes your automation suite easier to scale.
+              </p>
+              <p>
+                If your team is also expanding into AI-assisted testing workflows, this selector discipline pairs well with
+                <a href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html">Playwright MCP for AI-Driven Test Automation</a>
+                and
+                <a href="custom-agent-automated-component-page-test-case-generation-via-atlassian-mcp.html">Custom Agent - Automated Component Page &amp; Test Case Generation via Atlassian MCP</a>.
+              </p>
+            </div>
+
+            <div class="reference-servers">
+              <h3>Phuc Tan Dinh</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="social foot-social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+      <div>© 2026 Phuc Tan Dinh · QC Engineer · Nha Trang, Vietnam</div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    })();
+  </script>
+  <script src="assets/js/theme.js?v=20261102"></script>
+</body>
+
+</html>

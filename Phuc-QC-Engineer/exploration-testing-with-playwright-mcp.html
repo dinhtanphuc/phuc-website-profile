@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>try{var q=new URLSearchParams(location.search).get('theme'),t=q||localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Exploratory Testing with Playwright MCP</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/shell.css?v=20261102" rel="stylesheet">
+  <link href="assets/css/articles.css?v=20261102" rel="stylesheet">
+
+  <!-- Google Fonts for handwriting style -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iBlog
+  * Template URL: https://bootstrapmade.com/iBlog-bootstrap-Blog-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="blog-details-page">
+
+  <header class="site-nav">
+    <div class="topbar">
+      <div class="wrap">
+        <span class="status-line"><i></i> Open to remote &amp; international opportunities</span>
+        <span class="loc"><i class="bi bi-geo-alt"></i> Nha Trang, Vietnam · UTC+7</span>
+        <span class="topbar-right">
+          <a class="mail" href="mailto:dinhtanphuc47@gmail.com"><i class="bi bi-envelope"></i> dinhtanphuc47@gmail.com</a>
+          <span class="social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></span>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+        </span>
+      </div>
+    </div>
+    <div class="mainbar">
+      <div class="wrap">
+        <a class="brand" href="index.htmlindex.html">
+          <img src="assets/img/my-profile-img.jpg" alt="" width="40" height="40">
+          <span><b>Phuc Tan Dinh<em>.</em></b><small>QC Engineer</small></span>
+        </a>
+        <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" id="menuBtn"><i class="bi bi-list"></i></button>
+        <ul id="menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#work">Work &amp; Experience</a></li>
+          <li><a href="index.html#samples">Samples</a></li>
+          <li><a href="blog.html" class="current">Writing</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Blog Details Section -->
+    <section id="blog-details" class="blog-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="blog-detail-layout">
+          
+          <!-- Table of Contents Sidebar -->
+          <aside class="blog-toc-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="blog-toc-list">
+              <li class="active"><a href="#section-1">1. How it Works for Exploratory Testing</a>
+              </li>
+              <ul class="blog-toc-sublist">
+                  <li><a href="#section-1-1">1.1 Direct Interaction</a></li>
+                  <li><a href="#section-1-2">1.2 Structured Feedback</a></li>
+                  <li><a href="#section-1-3">1.3 Autonomous Execution</a></li>
+                </ul>
+              <li><a href="#section-2">2. Prompt Template</a>
+                <ul class="blog-toc-sublist">
+                  <li><a href="#section-2-1">2.1 Manual Testing Instructions</a></li>
+                  <li><a href="#section-2-2">2.2 Execution Steps</a></li>
+                  <li><a href="#section-2-3">2.3 Report Format</a></li>
+                </ul>
+              </li>
+              <li><a href="#section-3">3. Benefits</a></li>
+              <li><a href="#section-4">4. Conclusion</a></li>
+            </ul>
+
+            <div class="blog-project-info" style="margin-top: 30px;">
+              <h3>Project information</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Category:</strong> Quality Solutions</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Author:</strong> Phuc Tan Dinh</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Published:</strong> December 17, 2025</li>
+                <li style="margin-bottom: 8px; color: #6c757d; font-size: 14px;"><strong>Reading time:</strong> 6 min</li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Main Content Area -->
+          <div class="blog-content-area">
+            
+            <!-- Header Image -->
+            <div class="blog-header-image-2">
+              <img src="assets/img/Blog/exploratory-testing-process.jpg" alt="Exploratory Testing with Playwright MCP">
+            </div>
+
+            <!-- Introduction -->
+            <div class="blog-content-section">
+              <p>
+                In a traditional setup, exploratory testing is a manual process where a human "wanders" through an app to find bugs. 
+                With the Playwright MCP server, you can direct an AI agent to do this using natural language.
+              </p>
+              <p>
+                <strong>This approach combines the flexibility of human exploration with the speed and consistency of automation.</strong>
+              </p>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="blog-content-section" id="section-1">
+              <h2>1. How it Works for Exploratory Testing</h2>
+              
+              <h3 id="section-1-1">1.1 Direct Interaction</h3>
+              <p>
+                You give a high-level prompt to the AI agent using natural language. For example:
+              </p>
+              <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #0078d4;">
+                <p style="margin: 0; font-style: italic;">"Explore the checkout flow and try to break it by entering invalid zip codes"</p>
+              </div>
+              <p>
+                The AI understands the intent and begins exploring the application accordingly.
+              </p>
+              
+              <h3 id="section-1-2">1.2 Structured Feedback</h3>
+              <p>
+                The Playwright MCP server provides the AI with a snapshot of the page's accessibility tree. 
+                This allows the AI to understand the structure and purpose of elements without needing vision models:
+              </p>
+              <ul>
+                <li>Identifies that a button is labeled "Submit"</li>
+                <li>Recognizes that an input field is for "Email"</li>
+                <li>Understands the semantic relationships between elements</li>
+                <li>Maps the page's interactive components and their roles</li>
+              </ul>
+
+              <h3 id="section-1-3">1.3 Autonomous Execution</h3>
+              <p>
+                The AI decides which actions to take based on the live state of the DOM, performing a "human-like" exploration of the site:
+              </p>
+              <ul>
+                <li><strong>Click:</strong> Interacts with buttons, links, and other clickable elements</li>
+                <li><strong>Type:</strong> Enters text into input fields, textareas, and forms</li>
+                <li><strong>Drag:</strong> Performs drag-and-drop operations when needed</li>
+                <li><strong>Navigate:</strong> Moves between pages and sections of the application</li>
+                <li><strong>Observe:</strong> Monitors changes and validates expected behaviors</li>
+              </ul>
+              <p>
+                This autonomous execution allows the AI to adapt to the application's state in real-time, 
+                making it ideal for discovering edge cases and unexpected behaviors.
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="blog-content-section" id="section-2">
+              <h2>2. PROMPT Template</h2>
+              
+              <h3 id="section-2-1">2.1 Manual Testing Instructions</h3>
+              <p>
+                Use the following prompt template to direct the AI agent for exploratory testing:
+              </p>
+              
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #0078d4;">
+                <pre style="background: #ffffff; padding: 15px; border-radius: 4px; overflow-x: auto; white-space: pre-wrap;"><code># Manual Testing Instructions
+Username: [your-username]
+Password: [your-password]
+
+1. Use the Playwright MCP Server to navigate to the website, take a page snapshot and analyze 
+   the key functionalities. Then manually test the scenario provided by the user. If no scenario 
+   is provided, ask the user to provide one. Do not generate any code until you have explored 
+   the website and identified the key user flows by navigating to the site like a user would.
+
+2. Navigate to the url provided by the user and perform the described interactions. If no url 
+   is provided, ask the user to provide one.
+
+3. Observe and verify the expected behavior, focusing on accessibility, UI structure, and user 
+   experience.
+
+4. Report back in clear, natural language:
+   - What steps you performed (navigation, interactions, assertions).
+   - What observed (outcomes, UI changes, accessibility results).
+   - Any issues, unexpected behaviors, or accessibility concerns found.
+
+5. Reference URLs, element roles, and relevant details to support your findings.</code></pre>
+              </div>
+
+              <h3 id="section-2-2" style="margin-top: 30px;">2.2 Execution Steps</h3>
+              <p>
+                The AI agent will follow these steps during the exploratory testing session:
+              </p>
+              <ul style="line-height: 2;">
+                <li>Navigate to the specified URL using the Playwright MCP Server</li>
+                <li>Take a page snapshot to understand the structure</li>
+                <li>Analyze key functionalities and user flows</li>
+                <li>Perform the test scenario with various inputs and edge cases</li>
+                <li>Observe and document all outcomes and behaviors</li>
+                <li>Take screenshots or snapshots to illustrate issues</li>
+                <li>Close the browser after completing the test</li>
+              </ul>
+
+              <h3 id="section-2-3" style="margin-top: 30px;">2.3 Report Format</h3>
+              <div style="background: #d4edda; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745; margin: 15px 0;">
+                <p><strong>Example report format:</strong></p>
+                <pre style="background: #ffffff; padding: 15px; border-radius: 4px; overflow-x: auto; white-space: pre-wrap;"><code>- **Scenario:** [Brief description]
+- **Steps Taken:** [List of actions performed]
+- **Outcome:** [What happened, including any assertions or accessibility checks]
+- **Issues Found:** [List any problems or unexpected results]
+
+Generate a .md file with the report in the `manual-tests` directory and include 
+any relevant screenshots or snapshots.
+
+Take screenshots or snapshots of the page if necessary to illustrate issues or 
+confirm expected behavior.
+
+Close the browser after completing the manual test.</code></pre>
+              </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="blog-content-section" id="section-3">
+              <h2>3. Benefits of Exploratory Testing with Playwright MCP</h2>
+              <ul style="line-height: 2;">
+                <li>✅ <strong>Natural Language Control:</strong> Direct the AI using plain English instead of writing code</li>
+                <li>✅ <strong>Rapid Exploration:</strong> Test multiple scenarios and edge cases quickly</li>
+                <li>✅ <strong>Accessibility-First:</strong> Built-in understanding of semantic structure and ARIA roles</li>
+                <li>✅ <strong>Automated Documentation:</strong> Generate detailed test reports with screenshots</li>
+                <li>✅ <strong>Adaptive Testing:</strong> AI adjusts its approach based on the application's state</li>
+                <li>✅ <strong>Reduced Manual Effort:</strong> Focus on strategy while AI handles execution</li>
+              </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="blog-content-section" id="section-4">
+              <h2>4. Conclusion</h2>
+              <p>
+                Exploratory testing with Playwright MCP represents a new paradigm in software testing. 
+                By combining AI-driven automation with human-like exploration, we can discover issues that traditional 
+                scripted tests might miss.
+              </p>
+              <p>
+                The ability to direct testing through natural language, receive structured feedback via accessibility trees, 
+                and execute autonomous explorations makes this approach both powerful and accessible. 
+                It bridges the gap between manual exploratory testing and fully automated test suites.
+              </p>
+              <p>
+                Learn more about implementing AI-driven testing in your workflow with 
+                <a href="how-to-integrate-playwright-mcp-for-ai-driven-test-automation.html">Playwright MCP and GitHub Copilot</a>.
+              </p>
+              
+              <!-- Video Section -->
+              <div style="margin-top: 30px;">
+                <h3>Watch Demo</h3>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin-top: 15px;">
+                  <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/vHmE_xPic2Q" 
+                    title="Playwright MCP Exploratory Testing Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+            </div>
+            <div class="reference-servers">
+              <h3>Phuc Tan Dinh</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      
+
+    </section><!-- /Blog Details Section -->
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="social foot-social"><a href="https://www.facebook.com/phuc.boo.99/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/boosunofmemories/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="bi bi-tiktok"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+      <div>© 2026 Phuc Tan Dinh · QC Engineer · Nha Trang, Vietnam</div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    })();
+  </script>
+  <script src="assets/js/theme.js?v=20261102"></script>
+</body>
+
+</html>

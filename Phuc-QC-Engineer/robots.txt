@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://phucgotest.online/sitemap.xml

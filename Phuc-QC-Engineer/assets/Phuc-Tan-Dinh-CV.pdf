@@ -1,0 +1,54 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1560 >>
+stream
+BT /F2 22 Tf 56 790 Td (Phuc Tan Dinh) Tj ET
+BT /F1 12 Tf 56 760 Td (QC Engineer  |  Nha Trang, Vietnam  |  dinhtanphuc47@gmail.com) Tj ET
+BT /F1 10 Tf 56 740 Td (Portfolio: phucgotest.online) Tj ET
+BT /F2 13 Tf 56 712 Td (SUMMARY) Tj ET
+BT /F1 10 Tf 56 691 Td (QC Engineer with nearly 5 years of experience in manual testing, Cypress/Playwright) Tj ET
+BT /F1 10 Tf 56 673 Td (automation, API testing and AI-assisted QA.) Tj ET
+BT /F2 13 Tf 56 645 Td (EXPERIENCE) Tj ET
+BT /F2 11 Tf 56 624 Td (Junior QC Engineer - Infodation \(Feb 2022 - Present\)) Tj ET
+BT /F1 10 Tf 56 605 Td (- Dutch and Belgian internet-connection management platforms: test planning, test) Tj ET
+BT /F1 10 Tf 56 587 Td (  case design and execution, sprint demos to the client every 2 weeks.) Tj ET
+BT /F1 10 Tf 56 569 Td (- AT Crew \(Apr 2025 - Jul 2026\): helped teams adopt automation testing company-wide.) Tj ET
+BT /F1 10 Tf 56 551 Td (- IDEA team \(Aug - Oct 2026\): AI-assisted testing and Playwright automation.) Tj ET
+BT /F1 10 Tf 56 533 Td (- AI drawing-processing solution \(Oct 2026 - Present\): QC for tool effectiveness.) Tj ET
+BT /F2 13 Tf 56 505 Td (SKILLS) Tj ET
+BT /F1 10 Tf 56 484 Td (Manual and exploratory testing, Cypress, Playwright, Selenium, Postman, JMeter,) Tj ET
+BT /F1 10 Tf 56 466 Td (Swagger, Jira, Confluence, Claude, Playwright MCP, Atlassian MCP.) Tj ET
+BT /F2 13 Tf 56 438 Td (EDUCATION) Tj ET
+BT /F1 10 Tf 56 417 Td (B.Sc. in Information Technology - Nha Trang University \(2017 - 2021\)) Tj ET
+BT /F1 9 Tf 56 389 Td (Sample CV - to be updated.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000001862 00000 n 
+0000001932 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2007
+%%EOF
